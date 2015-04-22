@@ -12,7 +12,7 @@ import java.io.*;
  */
 public class ArchiveReader {
     private String filepath = "C:\\Users\\Bini\\Documents\\NetBeansProjects\\Barquito\\a.txt";
-    public String ArchiveReader() throws FileNotFoundException, IOException {
+    public String archiveReader() throws FileNotFoundException, IOException {
     BufferedReader br = new BufferedReader(new FileReader(filepath));
     try {
         StringBuilder sb = new StringBuilder();

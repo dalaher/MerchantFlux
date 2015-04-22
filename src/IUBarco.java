@@ -160,6 +160,7 @@ public class IUBarco extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         OpenMenu = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         CloseMenu = new javax.swing.JMenuItem();
         ExitMenu = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -1343,6 +1344,14 @@ public class IUBarco extends javax.swing.JFrame {
         });
         jMenu1.add(OpenMenu);
 
+        jMenuItem1.setText("Guardar cambios");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
         CloseMenu.setText("Cerrar");
         CloseMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1444,7 +1453,11 @@ public class IUBarco extends javax.swing.JFrame {
         BL.get(Lista.getSelectedIndex()).setP2(jTextField2.getText());
         BL.get(Lista.getSelectedIndex()).setP3(jTextField3.getText());
         BL.get(Lista.getSelectedIndex()).setP4(jTextField4.getText());
-        
+        try {
+            archiveWriter();
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
@@ -1619,6 +1632,10 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField30jTextField13ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1696,14 +1713,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton deleteButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1730,6 +1739,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1739,8 +1749,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
@@ -1766,14 +1774,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
@@ -1798,8 +1798,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton saveButton;
     private javax.swing.JButton saveButton1;
     private javax.swing.JButton saveButton2;
-    private javax.swing.JButton saveButton4;
-    private javax.swing.JButton saveButton5;
     private javax.swing.JButton saveButton6;
     private javax.swing.JButton saveButton7;
     private javax.swing.JButton saveButton8;
@@ -1816,4 +1814,22 @@ public class IUBarco extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private int posList = 2;
     BarcoLista BL = new BarcoLista();
+
+    private void archiveWriter() throws FileNotFoundException, IOException {
+        try {
+            String content = "This is the content to write into file";
+            File file = new File("C:\\Users\\Bini\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt");
+	// if file doesnt exists, then create it
+            if (!file.exists()) {
+		file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+	} finally {
+        System.out.print("Llegué aquí");
+    }
+    }
+
 }
