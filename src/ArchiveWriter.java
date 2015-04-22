@@ -11,7 +11,7 @@ import java.io.*;
  * @author Bini
  */
 public class ArchiveWriter {
-    private String filepath = "C:\\Users\\Bini\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt";
+    private String filepath = "C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\b.txt";
     public String archiveWriter() throws FileNotFoundException, IOException {
         try {
             String content = "This is the content to write into file";

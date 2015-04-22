@@ -83,6 +83,7 @@ public class IUBarco extends javax.swing.JFrame {
         AddButtonData1 = new javax.swing.JTextField();
         Lista1 = new java.awt.List();
         deleteButton1 = new javax.swing.JButton();
+        addButton2 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jTextField9 = new javax.swing.JTextField();
@@ -91,9 +92,6 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txt2 = new javax.swing.JTextArea();
         jPanel9 = new javax.swing.JPanel();
-        addButton2 = new javax.swing.JButton();
-        AddButtonData2 = new javax.swing.JTextField();
-        deleteButton2 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         Lista2 = new java.awt.List();
         jPanel11 = new javax.swing.JPanel();
@@ -104,9 +102,6 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         txt3 = new javax.swing.JTextArea();
         jPanel15 = new javax.swing.JPanel();
-        addButton3 = new javax.swing.JButton();
-        AddButtonData3 = new javax.swing.JTextField();
-        deleteButton3 = new javax.swing.JButton();
         jPanel16 = new javax.swing.JPanel();
         Lista4 = new java.awt.List();
         jPanel17 = new javax.swing.JPanel();
@@ -124,9 +119,6 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         txt4 = new javax.swing.JTextArea();
         jPanel24 = new javax.swing.JPanel();
-        addButton4 = new javax.swing.JButton();
-        AddButtonData4 = new javax.swing.JTextField();
-        deleteButton4 = new javax.swing.JButton();
         jPanel25 = new javax.swing.JPanel();
         Lista6 = new java.awt.List();
         jPanel26 = new javax.swing.JPanel();
@@ -157,6 +149,7 @@ public class IUBarco extends javax.swing.JFrame {
         jPanel22 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         OpenMenu = new javax.swing.JMenuItem();
@@ -390,6 +383,12 @@ public class IUBarco extends javax.swing.JFrame {
 
         jLabel10.setText("Tiempo en el proceso de llegada/salida");
 
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -480,6 +479,13 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        addButton2.setText("Español");
+        addButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -487,19 +493,20 @@ public class IUBarco extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AddButtonData1))
+                        .addGap(18, 18, 18)
+                        .addComponent(Lista1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(Lista1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(deleteButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddButtonData1)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(deleteButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -512,7 +519,9 @@ public class IUBarco extends javax.swing.JFrame {
                     .addComponent(addButton1)
                     .addComponent(AddButtonData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton1)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton1)
+                    .addComponent(addButton2))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
@@ -602,26 +611,6 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto Lista"));
 
-        addButton2.setText("Añadir");
-        addButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton2ActionPerformed(evt);
-            }
-        });
-
-        AddButtonData2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonData2ActionPerformed(evt);
-            }
-        });
-
-        deleteButton2.setText("Delete");
-        deleteButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButton2ActionPerformed(evt);
-            }
-        });
-
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto 2"));
 
         Lista2.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -648,6 +637,11 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto 1"));
 
+        Lista3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Lista3ActionPerformed(evt);
+            }
+        });
         Lista3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 Lista3KeyPressed(evt);
@@ -676,18 +670,9 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(addButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AddButtonData2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(deleteButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -696,13 +681,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton2)
-                    .addComponent(AddButtonData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -734,7 +713,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(up2))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Distancia entre puertos", jPanel7);
@@ -751,26 +730,6 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane4.setViewportView(txt3);
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de barcos y puertos"));
-
-        addButton3.setText("Añadir");
-        addButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton3ActionPerformed(evt);
-            }
-        });
-
-        AddButtonData3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonData3ActionPerformed(evt);
-            }
-        });
-
-        deleteButton3.setText("Delete");
-        deleteButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButton3ActionPerformed(evt);
-            }
-        });
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Barco"));
 
@@ -826,18 +785,9 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel15Layout.createSequentialGroup()
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
-                        .addComponent(addButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AddButtonData3))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel15Layout.createSequentialGroup()
-                        .addComponent(deleteButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,13 +796,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton3)
-                    .addComponent(AddButtonData3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Parámetros"));
@@ -965,7 +909,7 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Relaciones barco/puerto", jPanel12);
@@ -982,26 +926,6 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane5.setViewportView(txt4);
 
         jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de barcos y puertos"));
-
-        addButton4.setText("Añadir");
-        addButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButton4ActionPerformed(evt);
-            }
-        });
-
-        AddButtonData4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddButtonData4ActionPerformed(evt);
-            }
-        });
-
-        deleteButton4.setText("Delete");
-        deleteButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButton4ActionPerformed(evt);
-            }
-        });
 
         jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder("Barco"));
 
@@ -1057,18 +981,9 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel24Layout.createSequentialGroup()
-                        .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
-                        .addComponent(addButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AddButtonData4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel24Layout.createSequentialGroup()
-                        .addComponent(deleteButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1077,12 +992,6 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButton4)
-                    .addComponent(AddButtonData4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(deleteButton4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1191,7 +1100,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(saveButton8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
@@ -1223,7 +1132,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(up4))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Relaciones barco/puerto (España)", jPanel23);
@@ -1315,6 +1224,13 @@ public class IUBarco extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(jTextPane1);
 
+        jButton1.setText("Cargar solución");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -1323,12 +1239,17 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1432,6 +1353,8 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
         //Component a = AddButtonData.getText();;
         Lista.add(AddButtonData.getText());
+        Lista4.add(AddButtonData.getText());
+        Lista6.add(AddButtonData.getText());
         Barco barco = new Barco(AddButtonData.getText(), "","","","");
         BL.add(barco);
     }//GEN-LAST:event_addButtonActionPerformed
@@ -1463,13 +1386,7 @@ public class IUBarco extends javax.swing.JFrame {
     private void upActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upActionPerformed
         // TODO add your handling code here:
         String prueba = todojunto( BL.get(Lista.getSelectedIndex()));
-        try {
-            //Barco barco = BL.get(Lista.getSelectedIndex());
-            //txt.setText(prueba);
-            txt.setText(archiveReader());
-        } catch (IOException ex) {
-            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txt.setText(prueba);
     }//GEN-LAST:event_upActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -1481,15 +1398,33 @@ public class IUBarco extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void saveButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton1ActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+        PL.get(Lista1.getSelectedIndex()).setP1(jTextField5.getText());
+        PL.get(Lista1.getSelectedIndex()).setP2(jTextField6.getText());
+        PL.get(Lista1.getSelectedIndex()).setP3(jTextField7.getText());
+        PL.get(Lista1.getSelectedIndex()).setP4(jTextField8.getText());
+        PL.get(Lista1.getSelectedIndex()).setP5(jTextField10.getText());
+        try {
+            archiveWriter();
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_saveButton1ActionPerformed
 
     private void up1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up1ActionPerformed
         // TODO add your handling code here:
+        String prueba = todojunto( PL.get(Lista1.getSelectedIndex()));
+            txt.setText(prueba);
     }//GEN-LAST:event_up1ActionPerformed
 
     private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
         // TODO add your handling code here:
+         Lista1.add(AddButtonData1.getText());
+         Lista3.add(AddButtonData1.getText());
+         Lista2.add(AddButtonData1.getText());
+         Lista5.add(AddButtonData1.getText());
+        Puerto puerto = new Puerto(AddButtonData1.getText(), "","","","","");
+        PL.add(puerto);
     }//GEN-LAST:event_addButton1ActionPerformed
 
     private void AddButtonData1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonData1ActionPerformed
@@ -1502,6 +1437,9 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void deleteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton1ActionPerformed
         // TODO add your handling code here:
+        posList = Lista1.getSelectedIndex();
+        Lista1.remove(posList);
+        PL.deletePuerto(Lista.getSelectedItem());
     }//GEN-LAST:event_deleteButton1ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -1516,21 +1454,9 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_up2ActionPerformed
 
-    private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addButton2ActionPerformed
-
-    private void AddButtonData2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonData2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddButtonData2ActionPerformed
-
     private void Lista2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Lista2KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_Lista2KeyPressed
-
-    private void deleteButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButton2ActionPerformed
 
     private void Lista3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Lista3KeyPressed
         // TODO add your handling code here:
@@ -1539,18 +1465,6 @@ public class IUBarco extends javax.swing.JFrame {
     private void up3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_up3ActionPerformed
-
-    private void addButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addButton3ActionPerformed
-
-    private void AddButtonData3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonData3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddButtonData3ActionPerformed
-
-    private void deleteButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButton3ActionPerformed
 
     private void Lista4KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Lista4KeyPressed
         // TODO add your handling code here:
@@ -1588,18 +1502,6 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_up4ActionPerformed
 
-    private void addButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addButton4ActionPerformed
-
-    private void AddButtonData4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonData4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddButtonData4ActionPerformed
-
-    private void deleteButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_deleteButton4ActionPerformed
-
     private void Lista6KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Lista6KeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_Lista6KeyPressed
@@ -1636,12 +1538,41 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void Lista3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Lista3ActionPerformed
+
+    private void addButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton2ActionPerformed
+        // TODO add your handling code here:
+         Lista1.add(AddButtonData1.getText());
+         Lista7.add(AddButtonData1.getText());
+        Puerto puerto = new Puerto(AddButtonData1.getText(), "","","","","");
+        PEL.add(puerto);
+    }//GEN-LAST:event_addButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            //Barco barco = BL.get(Lista.getSelectedIndex());
+            //txt.setText(prueba);
+            txt.setText(archiveReader());
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     public String todojunto (Barco barco){
-        return new String (barco.getName() + barco.getP1() + barco.getP2() + barco.getP3() + barco.getP4());
+        return barco.getName() + barco.getP1() + barco.getP2() + barco.getP3() + barco.getP4();
+    }
+    public String todojunto (Puerto puerto){
+        return puerto.getName() + puerto.getP1() + puerto.getP2() + puerto.getP3() + puerto.getP4() + puerto.getP5();
     }
     
     public String archiveReader() throws FileNotFoundException, IOException {
@@ -1687,9 +1618,6 @@ public class IUBarco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddButtonData;
     private javax.swing.JTextField AddButtonData1;
-    private javax.swing.JTextField AddButtonData2;
-    private javax.swing.JTextField AddButtonData3;
-    private javax.swing.JTextField AddButtonData4;
     private javax.swing.JMenuItem CloseMenu;
     private javax.swing.JMenuItem ExitMenu;
     private java.awt.List Lista;
@@ -1704,13 +1632,9 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton addButton;
     private javax.swing.JButton addButton1;
     private javax.swing.JButton addButton2;
-    private javax.swing.JButton addButton3;
-    private javax.swing.JButton addButton4;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton deleteButton1;
-    private javax.swing.JButton deleteButton2;
-    private javax.swing.JButton deleteButton3;
-    private javax.swing.JButton deleteButton4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel19;
@@ -1814,6 +1738,8 @@ public class IUBarco extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private int posList = 2;
     BarcoLista BL = new BarcoLista();
+    PuertoLista PL = new PuertoLista();
+    PuertoEspLista PEL = new PuertoEspLista();
 
     private void archiveWriter() throws FileNotFoundException, IOException {
         try {

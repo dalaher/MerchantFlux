@@ -11,7 +11,7 @@ import java.io.*;
  * @author Bini
  */
 public class ArchiveReader {
-    private String filepath = "C:\\Users\\Bini\\Documents\\NetBeansProjects\\Barquito\\a.txt";
+    private String filepath = "C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt";
     public String archiveReader() throws FileNotFoundException, IOException {
     BufferedReader br = new BufferedReader(new FileReader(filepath));
     try {

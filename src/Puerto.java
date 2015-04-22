@@ -35,6 +35,10 @@ public class Puerto {
         return p4;
     }
 
+    public String getP5() {
+        return p5;
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -53,6 +57,10 @@ public class Puerto {
 
     public void setP4(String p4) {
         this.p4 = p4;
+    }
+    
+    public void setP5(String p4) {
+        this.p5 = p5;
     }
     
 }
