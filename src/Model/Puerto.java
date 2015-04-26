@@ -1,3 +1,5 @@
+package Model;
+
 public class Puerto {
     private String p1;
     private String p2;

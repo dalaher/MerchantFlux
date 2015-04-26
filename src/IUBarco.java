@@ -1,6 +1,11 @@
 
 
 
+import Model.PuertoLista;
+import Model.Puerto;
+import Model.PuertoEspLista;
+import Model.BarcoLista;
+import Model.Barco;
 import java.io.*;
 import javax.swing.JFileChooser;
 import java.awt.Component;
