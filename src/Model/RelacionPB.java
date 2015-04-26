@@ -12,6 +12,7 @@ package Model;
 public class RelacionPB {
     private Puerto puerto;
     private Barco barco;
+    private String id;
     private String Propiedad;
     private String Propiedad2;
     private String Propiedad3;
@@ -22,8 +23,17 @@ public class RelacionPB {
         this.Propiedad = Propiedad;
         this.Propiedad2 = Propiedad2;
         this.Propiedad3 = Propiedad3;
+        this.id= puerto.getName() + " <--> "+  barco.getName();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    
     public Puerto getPuerto() {
         return puerto;
     }
