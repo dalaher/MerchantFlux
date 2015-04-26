@@ -6,9 +6,12 @@ import Model.Puerto;
 import Model.PuertoEspLista;
 import Model.BarcoLista;
 import Model.Barco;
+import Model.RelacionPuerto;
+import Model.RelacionPuertoSet;
 import java.io.*;
 import javax.swing.JFileChooser;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,19 +101,23 @@ public class IUBarco extends javax.swing.JFrame {
         txtDistancias = new javax.swing.JTextArea();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        ListaPuertoDestino = new java.awt.List();
+        ListaPuertosDestino = new java.awt.List();
         jPanel11 = new javax.swing.JPanel();
         ListaPuertosOrigen = new java.awt.List();
+        jPanel18 = new javax.swing.JPanel();
+        ListaPuertosDestino1 = new java.awt.List();
+        addButtonPuerto1 = new javax.swing.JButton();
+        deleteButtonPuerto1 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         upPuertoBarco = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtPuertoBarco = new javax.swing.JTextArea();
         jPanel15 = new javax.swing.JPanel();
-        jPanel16 = new javax.swing.JPanel();
-        ListaBarcoPuerto = new java.awt.List();
-        jPanel17 = new javax.swing.JPanel();
-        ListaPuertoBarco = new java.awt.List();
+        jPanel19 = new javax.swing.JPanel();
+        ListaPuertosDestino2 = new java.awt.List();
+        addButtonPuerto2 = new javax.swing.JButton();
+        deleteButtonPuerto2 = new javax.swing.JButton();
         jPanel20 = new javax.swing.JPanel();
         fuel_puerto = new javax.swing.JTextField();
         tasa_fija = new javax.swing.JTextField();
@@ -123,11 +130,6 @@ public class IUBarco extends javax.swing.JFrame {
         upPuertoEspBarco = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtPuertoEspBarco = new javax.swing.JTextArea();
-        jPanel24 = new javax.swing.JPanel();
-        jPanel25 = new javax.swing.JPanel();
-        ListaBarcoPuertoEsp = new java.awt.List();
-        jPanel26 = new javax.swing.JPanel();
-        ListaPuertoEspBarco = new java.awt.List();
         jPanel27 = new javax.swing.JPanel();
         fuel_puertoEsp = new javax.swing.JTextField();
         T3 = new javax.swing.JTextField();
@@ -142,6 +144,11 @@ public class IUBarco extends javax.swing.JFrame {
         T1 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         remolque = new javax.swing.JTextField();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        ListaPuertosDestino3 = new java.awt.List();
+        addButtonPuerto3 = new javax.swing.JButton();
+        deleteButtonPuerto3 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         perdidas = new javax.swing.JTextField();
@@ -264,6 +271,11 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        ListaBarcos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaBarcosActionPerformed(evt);
+            }
+        });
         ListaBarcos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ListaBarcosKeyPressed(evt);
@@ -336,7 +348,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(upBarcos)
-                        .addContainerGap(346, Short.MAX_VALUE))
+                        .addContainerGap(597, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -416,7 +428,7 @@ public class IUBarco extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
-                        .addGap(0, 290, Short.MAX_VALUE)))
+                        .addGap(0, 541, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -620,9 +632,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto 2"));
 
-        ListaPuertoDestino.addKeyListener(new java.awt.event.KeyAdapter() {
+        ListaPuertosDestino.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ListaPuertoDestinoKeyPressed(evt);
+                ListaPuertosDestinoKeyPressed(evt);
             }
         });
 
@@ -632,13 +644,13 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ListaPuertoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaPuertosDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addComponent(ListaPuertoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaPuertosDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
@@ -671,24 +683,76 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
+        jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Relaciones"));
+
+        ListaPuertosDestino1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ListaPuertosDestino1KeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ListaPuertosDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addComponent(ListaPuertosDestino1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        addButtonPuerto1.setText("Añadir Conexión");
+        addButtonPuerto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonPuerto1ActionPerformed(evt);
+            }
+        });
+
+        deleteButtonPuerto1.setText("Eliminar Conexion");
+        deleteButtonPuerto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonPuerto1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(deleteButtonPuerto1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(addButtonPuerto1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addButtonPuerto1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteButtonPuerto1)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -699,15 +763,15 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upDistancias)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addComponent(upDistancias))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -738,72 +802,67 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de barcos y puertos"));
 
-        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Barco"));
+        jPanel19.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Relaciones"));
 
-        ListaBarcoPuerto.addKeyListener(new java.awt.event.KeyAdapter() {
+        ListaPuertosDestino2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                ListaBarcoPuertoKeyPressed(evt);
+                ListaPuertosDestino2KeyPressed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ListaBarcoPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ListaPuertosDestino2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel16Layout.createSequentialGroup()
-                .addComponent(ListaBarcoPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addComponent(ListaPuertosDestino2, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 12, Short.MAX_VALUE))
         );
 
-        jPanel17.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto"));
-
-        ListaPuertoBarco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ListaPuertoBarcoKeyPressed(evt);
+        addButtonPuerto2.setText("Añadir Conexión");
+        addButtonPuerto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonPuerto2ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPuertoBarco, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(ListaPuertoBarco, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
+        deleteButtonPuerto2.setText("Eliminar Conexion");
+        deleteButtonPuerto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonPuerto2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
+            .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(deleteButtonPuerto2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(addButtonPuerto2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(259, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel15Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addButtonPuerto2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteButtonPuerto2)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Parámetros"));
@@ -849,7 +908,7 @@ public class IUBarco extends javax.swing.JFrame {
                             .addComponent(jLabel21)
                             .addComponent(jLabel20)
                             .addComponent(jLabel19))
-                        .addGap(0, 151, Short.MAX_VALUE)))
+                        .addGap(0, 226, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel20Layout.setVerticalGroup(
@@ -877,30 +936,31 @@ public class IUBarco extends javax.swing.JFrame {
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(20, 20, 20)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upPuertoBarco)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                        .addComponent(upPuertoBarco))
+                    .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(upPuertoBarco))
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(upPuertoBarco)))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(73, 73, 73)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -908,9 +968,7 @@ public class IUBarco extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -931,76 +989,6 @@ public class IUBarco extends javax.swing.JFrame {
         txtPuertoEspBarco.setColumns(20);
         txtPuertoEspBarco.setRows(5);
         jScrollPane5.setViewportView(txtPuertoEspBarco);
-
-        jPanel24.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de barcos y puertos"));
-
-        jPanel25.setBorder(javax.swing.BorderFactory.createTitledBorder("Barco"));
-
-        ListaBarcoPuertoEsp.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ListaBarcoPuertoEspKeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
-        jPanel25.setLayout(jPanel25Layout);
-        jPanel25Layout.setHorizontalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaBarcoPuertoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel25Layout.setVerticalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addComponent(ListaBarcoPuertoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-
-        jPanel26.setBorder(javax.swing.BorderFactory.createTitledBorder("Puerto"));
-
-        ListaPuertoEspBarco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ListaPuertoEspBarcoKeyPressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPuertoEspBarco, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addComponent(ListaPuertoEspBarco, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         jPanel27.setBorder(javax.swing.BorderFactory.createTitledBorder("Parámetros"));
 
@@ -1075,7 +1063,7 @@ public class IUBarco extends javax.swing.JFrame {
                             .addComponent(jLabel27)
                             .addComponent(jLabel26)
                             .addComponent(jLabel25))
-                        .addGap(0, 151, Short.MAX_VALUE)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel27Layout.setVerticalGroup(
@@ -1110,6 +1098,71 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de barcos y puertos"));
+
+        jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Relaciones"));
+
+        ListaPuertosDestino3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ListaPuertosDestino3KeyPressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ListaPuertosDestino3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addComponent(ListaPuertosDestino3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        addButtonPuerto3.setText("Añadir Conexión");
+        addButtonPuerto3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonPuerto3ActionPerformed(evt);
+            }
+        });
+
+        deleteButtonPuerto3.setText("Eliminar Conexion");
+        deleteButtonPuerto3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonPuerto3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(deleteButtonPuerto3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(addButtonPuerto3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel16Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addButtonPuerto3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deleteButtonPuerto3)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
         jPanel23Layout.setHorizontalGroup(
@@ -1118,23 +1171,23 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel23Layout.createSequentialGroup()
-                        .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel23Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upPuertoEspBarco)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(upPuertoEspBarco))
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69)
+                        .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel23Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1233,7 +1286,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(upOtros)))
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(609, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1264,7 +1317,7 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 876, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1127, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
@@ -1321,8 +1374,7 @@ public class IUBarco extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addComponent(jTabbedPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1431,10 +1483,11 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
          ListaPuertos.add(AddButtonDataPuerto.getText());
          ListaPuertosOrigen.add(AddButtonDataPuerto.getText());
-         ListaPuertoDestino.add(AddButtonDataPuerto.getText());
+         ListaPuertosDestino.add(AddButtonDataPuerto.getText());
          ListaPuertoBarco.add(AddButtonDataPuerto.getText());
         Puerto puerto = new Puerto(AddButtonDataPuerto.getText(), "","","","","");
         PL.add(puerto);
+        
     }//GEN-LAST:event_addButtonPuertoActionPerformed
 
     private void AddButtonDataPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonDataPuertoActionPerformed
@@ -1458,15 +1511,18 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void saveButtonDistanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonDistanciaActionPerformed
         // TODO add your handling code here:
+        
+// If you know it's unique, you could `break;` here
+        
     }//GEN-LAST:event_saveButtonDistanciaActionPerformed
 
     private void upDistanciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upDistanciasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_upDistanciasActionPerformed
 
-    private void ListaPuertoDestinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertoDestinoKeyPressed
+    private void ListaPuertosDestinoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertosDestinoKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPuertoDestinoKeyPressed
+    }//GEN-LAST:event_ListaPuertosDestinoKeyPressed
 
     private void ListaPuertosOrigenKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertosOrigenKeyPressed
         // TODO add your handling code here:
@@ -1475,14 +1531,6 @@ public class IUBarco extends javax.swing.JFrame {
     private void upPuertoBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upPuertoBarcoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_upPuertoBarcoActionPerformed
-
-    private void ListaBarcoPuertoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaBarcoPuertoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaBarcoPuertoKeyPressed
-
-    private void ListaPuertoBarcoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertoBarcoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPuertoBarcoKeyPressed
 
     private void saveButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButton4ActionPerformed
         // TODO add your handling code here:
@@ -1511,14 +1559,6 @@ public class IUBarco extends javax.swing.JFrame {
     private void upPuertoEspBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upPuertoEspBarcoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_upPuertoEspBarcoActionPerformed
-
-    private void ListaBarcoPuertoEspKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaBarcoPuertoEspKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaBarcoPuertoEspKeyPressed
-
-    private void ListaPuertoEspBarcoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertoEspBarcoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaPuertoEspBarcoKeyPressed
 
     private void fuel_puertoEspjTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fuel_puertoEspjTextField11ActionPerformed
         // TODO add your handling code here:
@@ -1564,7 +1604,7 @@ public class IUBarco extends javax.swing.JFrame {
     private void addButtonPuertoEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuertoEspActionPerformed
         // TODO add your handling code here:
          ListaPuertos.add(AddButtonDataPuerto.getText());
-         ListaPuertoDestino.add(AddButtonDataPuerto.getText());
+         ListaPuertosDestino.add(AddButtonDataPuerto.getText());
          ListaPuertosOrigen.add(AddButtonDataPuerto.getText());
          ListaPuertoEspBarco.add(AddButtonDataPuerto.getText());
         Puerto puerto = new Puerto(AddButtonDataPuerto.getText(), "","","","","");
@@ -1584,6 +1624,46 @@ public class IUBarco extends javax.swing.JFrame {
     private void upOtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upOtrosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_upOtrosActionPerformed
+
+    private void ListaBarcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaBarcosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaBarcosActionPerformed
+
+    private void ListaPuertosDestino1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertosDestino1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaPuertosDestino1KeyPressed
+
+    private void addButtonPuerto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuerto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButtonPuerto1ActionPerformed
+
+    private void deleteButtonPuerto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonPuerto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonPuerto1ActionPerformed
+
+    private void ListaPuertosDestino2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertosDestino2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaPuertosDestino2KeyPressed
+
+    private void addButtonPuerto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuerto2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButtonPuerto2ActionPerformed
+
+    private void deleteButtonPuerto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonPuerto2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonPuerto2ActionPerformed
+
+    private void ListaPuertosDestino3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaPuertosDestino3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaPuertosDestino3KeyPressed
+
+    private void addButtonPuerto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuerto3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addButtonPuerto3ActionPerformed
+
+    private void deleteButtonPuerto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonPuerto3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonPuerto3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1657,13 +1737,12 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField AddButtonDataBarco;
     private javax.swing.JTextField AddButtonDataPuerto;
     private javax.swing.JMenuItem ExitMenu;
-    private java.awt.List ListaBarcoPuerto;
-    private java.awt.List ListaBarcoPuertoEsp;
     private java.awt.List ListaBarcos;
-    private java.awt.List ListaPuertoBarco;
-    private java.awt.List ListaPuertoDestino;
-    private java.awt.List ListaPuertoEspBarco;
     private java.awt.List ListaPuertos;
+    private java.awt.List ListaPuertosDestino;
+    private java.awt.List ListaPuertosDestino1;
+    private java.awt.List ListaPuertosDestino2;
+    private java.awt.List ListaPuertosDestino3;
     private java.awt.List ListaPuertosOrigen;
     private javax.swing.JMenuItem OpenMenu;
     private javax.swing.JTextField Q;
@@ -1672,12 +1751,18 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField T3;
     private javax.swing.JButton addButtonBarco;
     private javax.swing.JButton addButtonPuerto;
+    private javax.swing.JButton addButtonPuerto1;
+    private javax.swing.JButton addButtonPuerto2;
+    private javax.swing.JButton addButtonPuerto3;
     private javax.swing.JButton addButtonPuertoEsp;
     private javax.swing.JTextField bonificaciones;
     private javax.swing.JTextField capacidad;
     private javax.swing.JTextField costo_diario;
     private javax.swing.JButton deleteButtonBarco;
     private javax.swing.JButton deleteButtonPuerto;
+    private javax.swing.JButton deleteButtonPuerto1;
+    private javax.swing.JButton deleteButtonPuerto2;
+    private javax.swing.JButton deleteButtonPuerto3;
     private javax.swing.JTextField distancia;
     private javax.swing.JTextField fuel_km;
     private javax.swing.JTextField fuel_puerto;
@@ -1718,16 +1803,15 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1780,7 +1864,12 @@ public class IUBarco extends javax.swing.JFrame {
     BarcoLista BL = new BarcoLista();
     PuertoLista PL = new PuertoLista();
     PuertoEspLista PEL = new PuertoEspLista();
-
+    RelacionPuertoSet RPS = new RelacionPuertoSet();
    
-
+    
+    /*if(RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex())== null)
+            RPSList.get(ListaPuertosOrigen.getSelectedIndex()).add(new RelacionPuerto(PL.get(ListaPuertosDestino.getSelectedIndex()), distancia.getText()));
+        RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()).setDistancia(distancia.getText());
+        System.out.println(RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()));*/
+    
 }
