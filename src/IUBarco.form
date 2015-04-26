@@ -44,20 +44,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OpenMenuActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="saveArchive">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar cambios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="CloseMenu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cerrar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseMenuActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveArchiveActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ExitMenu">
@@ -141,7 +133,7 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="445" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="up" min="-2" max="-2" attributes="0"/>
+                              <Component id="upBarcos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="346" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -165,7 +157,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                          <Component id="up" min="-2" max="-2" attributes="0"/>
+                          <Component id="upBarcos" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="41" max="32767" attributes="0"/>
                   </Group>
@@ -188,13 +180,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField4" max="32767" attributes="0"/>
-                              <Component id="jTextField3" max="32767" attributes="0"/>
-                              <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="capacidad" max="32767" attributes="0"/>
+                              <Component id="velocidad" max="32767" attributes="0"/>
+                              <Component id="costo_diario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fuel_km" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                                      <Component id="saveButtonBarco" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
@@ -213,33 +205,33 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="costo_diario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                          <Component id="fuel_km" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                          <Component id="velocidad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+                          <Component id="capacidad" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="saveButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveButtonBarco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="costo_diario">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costo_diarioActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="fuel_km">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
@@ -251,9 +243,9 @@
                     <Property name="text" type="java.lang.String" value="Coste de Combustible por milla nautica"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="velocidad">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="velocidadActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel4">
@@ -261,19 +253,19 @@
                     <Property name="text" type="java.lang.String" value="Velocidad media"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="capacidad">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Capacidad"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="saveButton">
+                <Component class="javax.swing.JButton" name="saveButtonBarco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonBarcoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -294,19 +286,19 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="addButton" min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="addButtonBarco" min="-2" pref="67" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="AddButtonData" max="32767" attributes="0"/>
+                                  <Component id="AddButtonDataBarco" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Component id="Lista" min="-2" pref="218" max="-2" attributes="0"/>
+                                          <Component id="ListaBarcos" min="-2" pref="218" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="deleteButton" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="deleteButtonBarco" min="-2" pref="67" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -320,44 +312,44 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Lista" min="-2" pref="213" max="-2" attributes="0"/>
+                          <Component id="ListaBarcos" min="-2" pref="213" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="AddButtonData" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addButtonBarco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AddButtonDataBarco" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="deleteButtonBarco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="28" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="addButton">
+                <Component class="javax.swing.JButton" name="addButtonBarco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonBarcoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="AddButtonData">
+                <Component class="javax.swing.JTextField" name="AddButtonDataBarco">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonDataActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonDataBarcoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="java.awt.List" name="Lista">
+                <Component class="java.awt.List" name="ListaBarcos">
                   <Events>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaKeyPressed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaBarcosKeyPressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="deleteButton">
+                <Component class="javax.swing.JButton" name="deleteButtonBarco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButtonActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButtonBarcoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -369,7 +361,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txt">
+                <Component class="javax.swing.JTextArea" name="txtBarco">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -377,12 +369,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="up">
+            <Component class="javax.swing.JButton" name="upBarcos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upBarcosActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -412,7 +404,7 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="445" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="up1" min="-2" max="-2" attributes="0"/>
+                              <Component id="upPuertos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -430,7 +422,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                          <Component id="up1" min="-2" max="-2" attributes="0"/>
+                          <Component id="upPuertos" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
@@ -453,14 +445,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField10" max="32767" attributes="0"/>
-                              <Component id="jTextField8" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField7" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tiempo" max="32767" attributes="0"/>
+                              <Component id="ratio_contenedor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="tasa_contenedor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Q" alignment="0" max="32767" attributes="0"/>
+                              <Component id="Q_valor" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="saveButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="saveButtonPuerto" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -480,37 +472,37 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                          <Component id="Q" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                          <Component id="Q_valor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" max="-2" attributes="0"/>
+                          <Component id="tasa_contenedor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                          <Component id="ratio_contenedor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField10" min="-2" max="-2" attributes="0"/>
+                          <Component id="tiempo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="saveButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveButtonPuerto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="Q">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="QActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="Q_valor">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
                   <Properties>
@@ -522,9 +514,9 @@
                     <Property name="text" type="java.lang.String" value="Valor de exportaci&#xf3;n/importaci&#xf3;n(+/-) en miles de euros"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="tasa_contenedor">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tasa_contenedorActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel7">
@@ -532,19 +524,19 @@
                     <Property name="text" type="java.lang.String" value="Tasa de pago por TEU"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="ratio_contenedor">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ratio diario de gesti&#xf3;n de TEU"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="saveButton1">
+                <Component class="javax.swing.JButton" name="saveButtonPuerto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonPuertoActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
@@ -552,19 +544,19 @@
                     <Property name="text" type="java.lang.String" value="Tiempo en el proceso de llegada/salida"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField10">
+                <Component class="javax.swing.JTextField" name="tiempo">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField10ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tiempoActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="up1">
+            <Component class="javax.swing.JButton" name="upPuertos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upPuertosActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -574,7 +566,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txt1">
+                <Component class="javax.swing.JTextArea" name="txtPuertos">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -598,21 +590,21 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Component id="Lista1" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="ListaPuertos" min="-2" pref="218" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="addButton1" min="-2" pref="67" max="-2" attributes="0"/>
-                                      <Component id="addButton2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="addButtonPuerto" min="-2" pref="67" max="-2" attributes="0"/>
+                                      <Component id="addButtonPuertoEsp" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="AddButtonData1" max="32767" attributes="0"/>
+                                      <Component id="AddButtonDataPuerto" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="deleteButton1" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="deleteButtonPuerto" min="-2" pref="67" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -625,16 +617,16 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="Lista1" min="-2" pref="213" max="-2" attributes="0"/>
+                          <Component id="ListaPuertos" min="-2" pref="213" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="AddButtonData1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addButtonPuerto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AddButtonDataPuerto" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="deleteButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="addButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="deleteButtonPuerto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="addButtonPuertoEsp" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="28" max="32767" attributes="0"/>
                       </Group>
@@ -642,38 +634,38 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="addButton1">
+                <Component class="javax.swing.JButton" name="addButtonPuerto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonPuertoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="AddButtonData1">
+                <Component class="javax.swing.JTextField" name="AddButtonDataPuerto">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonData1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddButtonDataPuertoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="java.awt.List" name="Lista1">
+                <Component class="java.awt.List" name="ListaPuertos">
                   <Events>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista1KeyPressed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaPuertosKeyPressed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="deleteButton1">
+                <Component class="javax.swing.JButton" name="deleteButtonPuerto">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButtonPuertoActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="addButton2">
+                <Component class="javax.swing.JButton" name="addButtonPuertoEsp">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Espa&#xf1;ol"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonPuertoEspActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -704,7 +696,7 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jScrollPane3" min="-2" pref="443" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="up2" min="-2" max="-2" attributes="0"/>
+                              <Component id="upDistancias" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="100" max="32767" attributes="0"/>
@@ -722,7 +714,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                          <Component id="up2" min="-2" max="-2" attributes="0"/>
+                          <Component id="upDistancias" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
@@ -745,9 +737,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField9" alignment="0" max="32767" attributes="0"/>
+                              <Component id="distancia" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="saveButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="saveButtonDistancia" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="127" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -759,36 +751,36 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
+                          <Component id="distancia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="saveButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveButtonDistancia" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="distancia">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="distanciaActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="saveButton2">
+                <Component class="javax.swing.JButton" name="saveButtonDistancia">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButton2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonDistanciaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="up2">
+            <Component class="javax.swing.JButton" name="upDistancias">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upDistanciasActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -798,7 +790,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txt2">
+                <Component class="javax.swing.JTextArea" name="txtDistancias">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -854,7 +846,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Lista2" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="ListaPuertoDestino" min="-2" pref="218" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -862,16 +854,16 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Lista2" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="ListaPuertoDestino" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="java.awt.List" name="Lista2">
+                    <Component class="java.awt.List" name="ListaPuertoDestino">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista2KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaPuertoDestinoKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -890,7 +882,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Lista3" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="ListaPuertosOrigen" min="-2" pref="218" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -898,17 +890,17 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Lista3" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="ListaPuertosOrigen" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="java.awt.List" name="Lista3">
+                    <Component class="java.awt.List" name="ListaPuertosOrigen">
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Lista3ActionPerformed"/>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista3KeyPressed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ListaPuertosOrigenActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaPuertosOrigenKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -962,7 +954,7 @@
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="jScrollPane4" min="-2" pref="443" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="up3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="upPuertoBarco" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="41" max="32767" attributes="0"/>
@@ -980,7 +972,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-                              <Component id="up3" min="-2" max="-2" attributes="0"/>
+                              <Component id="upPuertoBarco" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="25" max="32767" attributes="0"/>
                       </Group>
@@ -988,12 +980,12 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="up3">
+                <Component class="javax.swing.JButton" name="upPuertoBarco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Actualizar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upPuertoBarcoActionPerformed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -1003,7 +995,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="txt3">
+                    <Component class="javax.swing.JTextArea" name="txtPuertoBarco">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -1059,7 +1051,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Lista4" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="ListaBarcoPuerto" min="-2" pref="218" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1067,16 +1059,16 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Lista4" min="-2" pref="213" max="-2" attributes="0"/>
+                                  <Component id="ListaBarcoPuerto" min="-2" pref="213" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="java.awt.List" name="Lista4">
+                        <Component class="java.awt.List" name="ListaBarcoPuerto">
                           <Events>
-                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista4KeyPressed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaBarcoPuertoKeyPressed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -1095,7 +1087,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="Lista5" min="-2" pref="218" max="-2" attributes="0"/>
+                                  <Component id="ListaPuertoBarco" min="-2" pref="218" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1103,16 +1095,16 @@
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="Lista5" min="-2" pref="213" max="-2" attributes="0"/>
+                                  <Component id="ListaPuertoBarco" min="-2" pref="213" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="java.awt.List" name="Lista5">
+                        <Component class="java.awt.List" name="ListaPuertoBarco">
                           <Events>
-                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista5KeyPressed"/>
+                            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaPuertoBarcoKeyPressed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -1134,12 +1126,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField21" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField19" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField20" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tasa_variable" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fuel_puerto" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="tasa_fija" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="saveButton6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="saveButtonPuertoBarco" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1157,29 +1149,29 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField19" min="-2" max="-2" attributes="0"/>
+                              <Component id="fuel_puerto" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField20" min="-2" max="-2" attributes="0"/>
+                              <Component id="tasa_fija" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField21" min="-2" max="-2" attributes="0"/>
+                              <Component id="tasa_variable" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                              <Component id="saveButton6" min="-2" max="-2" attributes="0"/>
+                              <Component id="saveButtonPuertoBarco" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="jTextField19">
+                    <Component class="javax.swing.JTextField" name="fuel_puerto">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField11ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField20">
+                    <Component class="javax.swing.JTextField" name="tasa_fija">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel19">
                       <Properties>
@@ -1191,7 +1183,7 @@
                         <Property name="text" type="java.lang.String" value="Pago fijo"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField21">
+                    <Component class="javax.swing.JTextField" name="tasa_variable">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField13ActionPerformed"/>
                       </Events>
@@ -1201,7 +1193,7 @@
                         <Property name="text" type="java.lang.String" value="Pago variable"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="saveButton6">
+                    <Component class="javax.swing.JButton" name="saveButtonPuertoBarco">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Guardar"/>
                       </Properties>
@@ -1239,7 +1231,7 @@
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jScrollPane5" min="-2" pref="443" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="up4" min="-2" max="-2" attributes="0"/>
+                              <Component id="upPuertoEspBarco" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="45" max="32767" attributes="0"/>
@@ -1257,7 +1249,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="up4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="upPuertoEspBarco" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="37" max="32767" attributes="0"/>
                   </Group>
@@ -1265,12 +1257,12 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="up4">
+            <Component class="javax.swing.JButton" name="upPuertoEspBarco">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actualizar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upPuertoEspBarcoActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane5">
@@ -1280,7 +1272,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txt4">
+                <Component class="javax.swing.JTextArea" name="txtPuertoEspBarco">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -1336,7 +1328,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Lista6" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="ListaBarcoPuertoEsp" min="-2" pref="218" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1344,16 +1336,16 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Lista6" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="ListaBarcoPuertoEsp" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="java.awt.List" name="Lista6">
+                    <Component class="java.awt.List" name="ListaBarcoPuertoEsp">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista6KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaBarcoPuertoEspKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1372,7 +1364,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Lista7" min="-2" pref="218" max="-2" attributes="0"/>
+                              <Component id="ListaPuertoEspBarco" min="-2" pref="218" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -1380,16 +1372,16 @@
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="Lista7" min="-2" pref="213" max="-2" attributes="0"/>
+                              <Component id="ListaPuertoEspBarco" min="-2" pref="213" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="java.awt.List" name="Lista7">
+                    <Component class="java.awt.List" name="ListaPuertoEspBarco">
                       <Events>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="Lista7KeyPressed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ListaPuertoEspBarcoKeyPressed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1411,18 +1403,18 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField30" max="32767" attributes="0"/>
-                              <Component id="jTextField29" max="32767" attributes="0"/>
-                              <Component id="jTextField28" max="32767" attributes="0"/>
-                              <Component id="jTextField27" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField25" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField26" alignment="0" max="32767" attributes="0"/>
+                              <Component id="remolque" max="32767" attributes="0"/>
+                              <Component id="T1" max="32767" attributes="0"/>
+                              <Component id="practicaje" max="32767" attributes="0"/>
+                              <Component id="bonificaciones" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fuel_puertoEsp" alignment="0" max="32767" attributes="0"/>
+                              <Component id="T3" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                      <Component id="saveButton8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="saveButtonPuertoEspBarco" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1440,41 +1432,41 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField25" min="-2" max="-2" attributes="0"/>
+                          <Component id="fuel_puertoEsp" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField26" min="-2" max="-2" attributes="0"/>
+                          <Component id="T3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField27" min="-2" max="-2" attributes="0"/>
+                          <Component id="bonificaciones" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField28" min="-2" max="-2" attributes="0"/>
+                          <Component id="practicaje" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jTextField29" min="-2" max="-2" attributes="0"/>
+                          <Component id="T1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField30" min="-2" max="-2" attributes="0"/>
+                          <Component id="remolque" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="saveButton8" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveButtonPuertoEspBarco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField25">
+                <Component class="javax.swing.JTextField" name="fuel_puertoEsp">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField25jTextField11ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fuel_puertoEspjTextField11ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField26">
+                <Component class="javax.swing.JTextField" name="T3">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel25">
                   <Properties>
@@ -1486,9 +1478,9 @@
                     <Property name="text" type="java.lang.String" value="T3"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField27">
+                <Component class="javax.swing.JTextField" name="bonificaciones">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField27jTextField13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bonificacionesjTextField13ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel27">
@@ -1496,12 +1488,12 @@
                     <Property name="text" type="java.lang.String" value="Bonificaciones"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="saveButton8">
+                <Component class="javax.swing.JButton" name="saveButtonPuertoEspBarco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButton8saveButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonPuertoEspBarcosaveButton4ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel28">
@@ -1509,9 +1501,9 @@
                     <Property name="text" type="java.lang.String" value="Practicaje"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField28">
+                <Component class="javax.swing.JTextField" name="practicaje">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField28jTextField13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="practicajejTextField13ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel29">
@@ -1519,9 +1511,9 @@
                     <Property name="text" type="java.lang.String" value="T1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField29">
+                <Component class="javax.swing.JTextField" name="T1">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField29jTextField13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="T1jTextField13ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
@@ -1529,9 +1521,9 @@
                     <Property name="text" type="java.lang.String" value="Remolque"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField30">
+                <Component class="javax.swing.JTextField" name="remolque">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField30jTextField13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="remolquejTextField13ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -1550,10 +1542,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="507" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jScrollPane7" min="-2" pref="443" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="upOtros" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="358" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1562,7 +1561,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel21" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="242" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="upOtros" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="128" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1583,12 +1587,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField24" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField22" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jTextField23" alignment="0" max="32767" attributes="0"/>
+                              <Component id="valor_contenedor" alignment="0" max="32767" attributes="0"/>
+                              <Component id="perdidas" alignment="0" max="32767" attributes="0"/>
+                              <Component id="temporada" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="saveButton7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="saveButtonOtros" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1606,29 +1610,29 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField22" min="-2" max="-2" attributes="0"/>
+                          <Component id="perdidas" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField23" min="-2" max="-2" attributes="0"/>
+                          <Component id="temporada" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField24" min="-2" max="-2" attributes="0"/>
+                          <Component id="valor_contenedor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                          <Component id="saveButton7" min="-2" max="-2" attributes="0"/>
+                          <Component id="saveButtonOtros" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextField22">
+                <Component class="javax.swing.JTextField" name="perdidas">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField22jTextField11ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="perdidasjTextField11ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField23">
+                <Component class="javax.swing.JTextField" name="temporada">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel22">
                   <Properties>
@@ -1640,9 +1644,9 @@
                     <Property name="text" type="java.lang.String" value="Rango de tiempo de los datos (d&#xed;as)"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField24">
+                <Component class="javax.swing.JTextField" name="valor_contenedor">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField24jTextField13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="valor_contenedorjTextField13ActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel24">
@@ -1650,16 +1654,39 @@
                     <Property name="text" type="java.lang.String" value="Valor medio de un contenedor vac&#xed;o"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="saveButton7">
+                <Component class="javax.swing.JButton" name="saveButtonOtros">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Guardar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButton7saveButton4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonOtrossaveButton4ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtOtros">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="upOtros">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="upOtrosActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel22">
@@ -1681,7 +1708,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="loadSolution" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1689,7 +1716,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="loadSolution" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane6" pref="475" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1702,16 +1729,16 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextPane" name="jTextPane1">
+                <Component class="javax.swing.JTextPane" name="solution">
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="loadSolution">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cargar soluci&#xf3;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadSolutionActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
