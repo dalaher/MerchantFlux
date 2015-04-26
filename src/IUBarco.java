@@ -156,8 +156,7 @@ public class IUBarco extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         OpenMenu = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        CloseMenu = new javax.swing.JMenuItem();
+        saveArchive = new javax.swing.JMenuItem();
         ExitMenu = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
@@ -1288,21 +1287,13 @@ public class IUBarco extends javax.swing.JFrame {
         });
         jMenu1.add(OpenMenu);
 
-        jMenuItem1.setText("Guardar cambios");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        saveArchive.setText("Guardar cambios");
+        saveArchive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                saveArchiveActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
-
-        CloseMenu.setText("Cerrar");
-        CloseMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseMenuActionPerformed(evt);
-            }
-        });
-        jMenu1.add(CloseMenu);
+        jMenu1.add(saveArchive);
 
         ExitMenu.setText("Salir");
         ExitMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -1356,10 +1347,6 @@ public class IUBarco extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_ExitMenuActionPerformed
 
-    private void CloseMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CloseMenuActionPerformed
-
     private void velocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_velocidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_velocidadActionPerformed
@@ -1399,11 +1386,6 @@ public class IUBarco extends javax.swing.JFrame {
         BL.get(ListaBarcos.getSelectedIndex()).setP2(fuel_km.getText());
         BL.get(ListaBarcos.getSelectedIndex()).setP3(velocidad.getText());
         BL.get(ListaBarcos.getSelectedIndex()).setP4(capacidad.getText());
-        try {
-            archiveWriter();
-        } catch (IOException ex) {
-            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }//GEN-LAST:event_saveButtonBarcoActionPerformed
 
     private void upBarcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upBarcosActionPerformed
@@ -1557,9 +1539,14 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_remolquejTextField13ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void saveArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveArchiveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        try {
+            archiveWriter();
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_saveArchiveActionPerformed
 
     private void tiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoActionPerformed
         // TODO add your handling code here:
@@ -1612,6 +1599,23 @@ public class IUBarco extends javax.swing.JFrame {
         return "";
     }
     
+     private void archiveWriter() throws FileNotFoundException, IOException {
+        try {
+            String content = "This is the content to write into file";
+            File file = new File("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt");
+	// if file doesnt exists, then create it
+            if (!file.exists()) {
+		file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(content);
+            bw.close();
+	} finally {
+        System.out.print("Llegué aquí");
+    }
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1647,7 +1651,6 @@ public class IUBarco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddButtonDataBarco;
     private javax.swing.JTextField AddButtonDataPuerto;
-    private javax.swing.JMenuItem CloseMenu;
     private javax.swing.JMenuItem ExitMenu;
     private java.awt.List ListaBarcoPuerto;
     private java.awt.List ListaBarcoPuertoEsp;
@@ -1702,7 +1705,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -1741,6 +1743,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField practicaje;
     private javax.swing.JTextField ratio_contenedor;
     private javax.swing.JTextField remolque;
+    private javax.swing.JMenuItem saveArchive;
     private javax.swing.JButton saveButtonBarco;
     private javax.swing.JButton saveButtonDistancia;
     private javax.swing.JButton saveButtonOtros;
@@ -1773,21 +1776,6 @@ public class IUBarco extends javax.swing.JFrame {
     PuertoLista PL = new PuertoLista();
     PuertoEspLista PEL = new PuertoEspLista();
 
-    private void archiveWriter() throws FileNotFoundException, IOException {
-        try {
-            String content = "This is the content to write into file";
-            File file = new File("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt");
-	// if file doesnt exists, then create it
-            if (!file.exists()) {
-		file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(content);
-            bw.close();
-	} finally {
-        System.out.print("Llegué aquí");
-    }
-    }
+   
 
 }
