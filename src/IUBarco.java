@@ -1643,10 +1643,6 @@ public class IUBarco extends javax.swing.JFrame {
     private void ListaRelacionesPBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ListaRelacionesPBActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
     
     public String todojunto (Barco barco){
         return barco.getName() + barco.getP1() + barco.getP2() + barco.getP3() + barco.getP4();
