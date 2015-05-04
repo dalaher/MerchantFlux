@@ -14,11 +14,21 @@ public class RelacionPuerto {
     private Puerto puerto;
     private Puerto puerto2;
     private String distancia;
+    private String id;
 
     public RelacionPuerto(Puerto puerto, Puerto puerto2, String distancia) {
         this.puerto = puerto;
         this.puerto2 = puerto2;
         this.distancia = distancia;
+        this.id= puerto.getName() + " --> "+  puerto2.getName();
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public Puerto getPuerto() {
