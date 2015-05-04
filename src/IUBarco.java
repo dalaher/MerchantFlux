@@ -1311,7 +1311,6 @@ public class IUBarco extends javax.swing.JFrame {
         filechooser.setCurrentDirectory(null);
         filechooser.addChoosableFileFilter(new ArchiveFilter());
         int retorno = filechooser.showOpenDialog(jMenu1);
-        
         if (retorno == JFileChooser.APPROVE_OPTION){
             File file = filechooser.getSelectedFile();
             //Image.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath())); 
