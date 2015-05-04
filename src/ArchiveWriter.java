@@ -12,9 +12,8 @@ import java.io.*;
  */
 public class ArchiveWriter {
     private String filepath = "C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\b.txt";
-    public String archiveWriter() throws FileNotFoundException, IOException {
+    public String archiveWriter(String content) throws FileNotFoundException, IOException {
         try {
-            String content = "This is the content to write into file";
             File file = new File(filepath);
 	// if file doesnt exists, then create it
             if (!file.exists()) {
