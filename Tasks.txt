@@ -4,7 +4,7 @@ Lector de archivos; Leer y pasarlo a la lista/atributos del programa  ( )
 	-Lector de Relaciones ( )
 	-Lector de Otros atributos ( )
 Parseador de strings para escribirlas a archivo ( )
-Inicializador de cajas de texto de atributos en la IU ( )
+Inicializador de cajas de texto de atributos en la IU (JF)
 Interacción con AMPL ( )
 	-Solution reader ( )
 
