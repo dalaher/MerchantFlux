@@ -11,11 +11,15 @@ import Model.RelacionPBE;
 import Model.RelacionPuerto;
 import java.io.*;
 import javax.swing.JFileChooser;
+import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.DefaultListModel;
+import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
