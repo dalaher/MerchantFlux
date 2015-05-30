@@ -11,15 +11,11 @@ import Model.RelacionPBE;
 import Model.RelacionPuerto;
 import java.io.*;
 import javax.swing.JFileChooser;
-import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.DefaultListModel;
-import javax.swing.*;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -85,8 +81,7 @@ public class IUBarco extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         saveButtonPuerto = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        tiempo = new javax.swing.JTextField();
-        upPuertos = new javax.swing.JButton();
+        atraque = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPuertos = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
@@ -95,6 +90,7 @@ public class IUBarco extends javax.swing.JFrame {
         ListaPuertos = new java.awt.List();
         deleteButtonPuerto = new javax.swing.JButton();
         addButtonPuertoEsp = new javax.swing.JButton();
+        saveButtonPuerto1 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         distancia = new javax.swing.JTextField();
@@ -399,9 +395,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jLabel10.setText("Tiempo en el proceso de llegada/salida");
 
-        tiempo.addActionListener(new java.awt.event.ActionListener() {
+        atraque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tiempoActionPerformed(evt);
+                atraqueActionPerformed(evt);
             }
         });
 
@@ -412,20 +408,20 @@ public class IUBarco extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tiempo)
                     .addComponent(ratio_contenedor)
                     .addComponent(tasa_contenedor)
                     .addComponent(Q)
                     .addComponent(Q_valor)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(saveButtonPuerto)
                             .addComponent(jLabel10)
                             .addComponent(jLabel8)
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5))
-                        .addGap(0, 477, Short.MAX_VALUE)))
+                            .addComponent(jLabel5)
+                            .addComponent(saveButtonPuerto))
+                        .addGap(0, 477, Short.MAX_VALUE))
+                    .addComponent(atraque))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -446,22 +442,15 @@ public class IUBarco extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ratio_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ratio_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(atraque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(saveButtonPuerto)
                 .addGap(23, 23, 23))
         );
-
-        upPuertos.setText("Actualizar");
-        upPuertos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                upPuertosActionPerformed(evt);
-            }
-        });
 
         txtPuertos.setColumns(20);
         txtPuertos.setRows(5);
@@ -482,6 +471,11 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        ListaPuertos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaPuertosActionPerformed(evt);
+            }
+        });
         ListaPuertos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ListaPuertosKeyPressed(evt);
@@ -541,6 +535,13 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        saveButtonPuerto1.setText("Actualizar");
+        saveButtonPuerto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonPuerto1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -556,8 +557,8 @@ public class IUBarco extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upPuertos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(saveButtonPuerto1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
@@ -570,7 +571,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(upPuertos))
+                    .addComponent(saveButtonPuerto1))
                 .addGap(32, 32, 32))
         );
 
@@ -682,6 +683,11 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel18.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Relaciones"));
 
+        ListaRelacionesPuertos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaRelacionesPuertosActionPerformed(evt);
+            }
+        });
         ListaRelacionesPuertos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ListaRelacionesPuertosKeyPressed(evt);
@@ -1059,6 +1065,11 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel28.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de Relaciones"));
 
+        ListaRelacionesPBE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaRelacionesPBEActionPerformed(evt);
+            }
+        });
         ListaRelacionesPBE.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ListaRelacionesPBEKeyPressed(evt);
@@ -1322,14 +1333,6 @@ public class IUBarco extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_ExitMenuActionPerformed
 
-    private void velocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_velocidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_velocidadActionPerformed
-
-    private void costo_diarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costo_diarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_costo_diarioActionPerformed
-
     private void AddButtonDataBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonDataBarcoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AddButtonDataBarcoActionPerformed
@@ -1370,14 +1373,6 @@ public class IUBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ListaBarcosKeyPressed
 
-    private void saveButtonBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonBarcoActionPerformed
-        // TODO add your handling code here:
-        BL.get(ListaBarcos.getSelectedIndex()).setP1(costo_diario.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP2(fuel_km.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP3(velocidad.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP4(capacidad.getText());
-    }//GEN-LAST:event_saveButtonBarcoActionPerformed
-
     private void upBarcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upBarcosActionPerformed
         // TODO add your handling code here:
         String prueba = todojunto( BL.get(ListaBarcos.getSelectedIndex()));
@@ -1398,19 +1393,14 @@ public class IUBarco extends javax.swing.JFrame {
         PL.get(ListaPuertos.getSelectedIndex()).setP2(Q_valor.getText());
         PL.get(ListaPuertos.getSelectedIndex()).setP3(tasa_contenedor.getText());
         PL.get(ListaPuertos.getSelectedIndex()).setP4(ratio_contenedor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP5(tiempo.getText());
-        try {
+        PL.get(ListaPuertos.getSelectedIndex()).setP5(atraque.getText());
+        
+        /*try {
             archiveWriter();
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }//GEN-LAST:event_saveButtonPuertoActionPerformed
-
-    private void upPuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upPuertosActionPerformed
-        // TODO add your handling code here:
-        String prueba = todojunto( PL.get(ListaPuertos.getSelectedIndex()));
-            txtBarco.setText(prueba);
-    }//GEN-LAST:event_upPuertosActionPerformed
 
     private void addButtonPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuertoActionPerformed
         // TODO add your handling code here:
@@ -1570,10 +1560,6 @@ public class IUBarco extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveArchiveActionPerformed
 
-    private void tiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiempoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tiempoActionPerformed
-
     private void ListaPuertosOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaPuertosOrigenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ListaPuertosOrigenActionPerformed
@@ -1609,6 +1595,11 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void ListaBarcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaBarcosActionPerformed
         // TODO add your handling code here:
+        costo_diario.setText(BL.get(ListaBarcos.getSelectedIndex()).getP1());
+        fuel_km.setText(BL.get(ListaBarcos.getSelectedIndex()).getP2());
+        velocidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP3());
+        capacidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP4());
+
     }//GEN-LAST:event_ListaBarcosActionPerformed
 
     private void ListaRelacionesPuertosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ListaRelacionesPuertosKeyPressed
@@ -1641,22 +1632,74 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void ListaRelacionesPBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPBActionPerformed
         // TODO add your handling code here:
+        fuel_puerto.setText(PBL.get(ListaRelacionesPB.getSelectedIndex()).getPropiedad());
+        tasa_fija.setText(PBL.get(ListaRelacionesPB.getSelectedIndex()).getPropiedad2());
+        tasa_variable.setText(PBL.get(ListaRelacionesPB.getSelectedIndex()).getPropiedad3());
     }//GEN-LAST:event_ListaRelacionesPBActionPerformed
+
+    private void ListaPuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaPuertosActionPerformed
+        Q.setText(PL.get(ListaPuertos.getSelectedIndex()).getP1());
+        Q_valor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP2());
+        tasa_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP3());
+        ratio_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP4());
+        atraque.setText(PL.get(ListaPuertos.getSelectedIndex()).getP5());
+    }//GEN-LAST:event_ListaPuertosActionPerformed
+
+    private void ListaRelacionesPuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPuertosActionPerformed
+        distancia.setText(RPL.get(ListaRelacionesPuertos.getSelectedIndex()).getDistancia());
+    }//GEN-LAST:event_ListaRelacionesPuertosActionPerformed
+
+    private void ListaRelacionesPBEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPBEActionPerformed
+        // TODO add your handling code here:
+        fuel_puertoEsp.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad());
+        T3.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad2());
+        bonificaciones.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad3());
+        practicaje.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad4());
+        T1.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad5());
+        remolque.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad6());
+    }//GEN-LAST:event_ListaRelacionesPBEActionPerformed
+
+    private void saveButtonPuerto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonPuerto1ActionPerformed
+        // TODO add your handling code here:
+        String prueba = todojunto( PL.get(ListaPuertos.getSelectedIndex()));
+        txtPuertos.setText(prueba);
+    }//GEN-LAST:event_saveButtonPuerto1ActionPerformed
+
+    private void saveButtonBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonBarcoActionPerformed
+        // TODO add your handling code here:
+        BL.get(ListaBarcos.getSelectedIndex()).setP1(costo_diario.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP2(fuel_km.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP3(velocidad.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP4(capacidad.getText());
+    }//GEN-LAST:event_saveButtonBarcoActionPerformed
+
+    private void velocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_velocidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_velocidadActionPerformed
+
+    private void costo_diarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costo_diarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_costo_diarioActionPerformed
+
+    private void atraqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atraqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_atraqueActionPerformed
     
     public String todojunto (Barco barco){
-        return barco.getName() + barco.getP1() + barco.getP2() + barco.getP3() + barco.getP4();
+        return barco.getName() + " "+ barco.getP1()+ " " + barco.getP2()+ " " + barco.getP3()+ " " + barco.getP4();
     }
     public String todojunto (Puerto puerto){
-        return puerto.getName() + puerto.getP1() + puerto.getP2() + puerto.getP3() + puerto.getP4() + puerto.getP5();
+        return puerto.getName()+ " " + puerto.getP1() + " "+ puerto.getP2() + " "+ puerto.getP3() + " "+ puerto.getP4() + " "+ puerto.getP5();
     }
     public String todojunto (RelacionPB relacion){
-        return relacion.getId() + relacion.getPropiedad() + relacion.getPropiedad2() + relacion.getPropiedad3();
+        return relacion.getId() + " "+ relacion.getPropiedad() + " "+ relacion.getPropiedad2() + " "+ relacion.getPropiedad3();
     }
     public String todojunto (RelacionPBE relacion){
-        return relacion.getId() + relacion.getPropiedad() + relacion.getPropiedad2() + relacion.getPropiedad3()+ relacion.getPropiedad4() + relacion.getPropiedad5() + relacion.getPropiedad6();
+        return relacion.getId() + " "+ relacion.getPropiedad() + " "+ relacion.getPropiedad2() + " "
+                + relacion.getPropiedad3()+ " "+ relacion.getPropiedad4() + " "+ relacion.getPropiedad5()+ " "+ relacion.getPropiedad6();
     }
     public String todojunto (RelacionPuerto relacion){
-        return relacion.getId() + relacion.getDistancia();
+        return relacion.getId() + " "+ relacion.getDistancia();
     }
     
     public String archiveReader() throws FileNotFoundException, IOException {
@@ -1736,6 +1779,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton addButtonPuerto;
     private javax.swing.JButton addButtonPuertoEsp;
     private javax.swing.JButton addButtonRelacionPuerto;
+    private javax.swing.JTextField atraque;
     private javax.swing.JTextField bonificaciones;
     private javax.swing.JTextField capacidad;
     private javax.swing.JTextField costo_diario;
@@ -1814,6 +1858,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton saveButtonDistancia;
     private javax.swing.JButton saveButtonOtros;
     private javax.swing.JButton saveButtonPuerto;
+    private javax.swing.JButton saveButtonPuerto1;
     private javax.swing.JButton saveButtonPuertoBarco;
     private javax.swing.JButton saveButtonPuertoEspBarco;
     private javax.swing.JTextPane solution;
@@ -1821,7 +1866,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField tasa_fija;
     private javax.swing.JTextField tasa_variable;
     private javax.swing.JTextField temporada;
-    private javax.swing.JTextField tiempo;
     private javax.swing.JTextArea txtBarco;
     private javax.swing.JTextArea txtDistancias;
     private javax.swing.JTextArea txtOtros;
@@ -1833,7 +1877,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton upOtros;
     private javax.swing.JButton upPuertoBarco;
     private javax.swing.JButton upPuertoEspBarco;
-    private javax.swing.JButton upPuertos;
     private javax.swing.JTextField valor_contenedor;
     private javax.swing.JTextField velocidad;
     // End of variables declaration//GEN-END:variables
