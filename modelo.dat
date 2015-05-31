@@ -15,7 +15,7 @@ Sen	30		1920			0.04166	-21811		-181429.07;#Puertos
 # Set y parámetros de Barcos
 set Barcos:= SA	SB	SE;
 								#Barcos
-param: capacidad	velocidad	costo_diario	fuel_km:=#Barcos
+param:	capacidad	velocidad	costo_diario	fuel_km:=#Barcos
 SA	1164		722.273		21289		21.967#Barcos	
 SB	1810		811.109		21940		24.96#Barcos
 #SC	2728		791.797		22865		33.49#Barcos
@@ -49,10 +49,10 @@ param tasa_variable:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
 		#SF	7289.6	7289.6	7289.6	26186.8	37709.1	43025.9	43025.9	43025.9	43025.9;#PUERTO <--> BARCO
 		
 # Otros parametros
-
-param perdidas:= 0.15;
-param temporada:= 365;
-param valor_contenedor:= 1500;
+#perdidas
+param perdidas:= 0.15;#perdidas #temporada
+param temporada:= 365;#temporada #valorContenedor
+param valor_contenedor:= 1500; #valorContenedor
 #PUERTO <--> PUERTO
 param: arcos: 		distancia:=#PUERTO <--> PUERTO
 	Arg Bra		1900,	Bra Arg		1858#PUERTO <--> PUERTO
@@ -68,7 +68,7 @@ param: arcos: 		distancia:=#PUERTO <--> PUERTO
 	Can Cam		4755.1,	Cam Can		4755.1#PUERTO <--> PUERTO
 	Can Mar		1080.1,	Mar Can		1080.1#PUERTO <--> PUERTO
 	Can Sen		1329.4,	Sen Can		1329.4#PUERTO <--> PUERTO
-	EU Can		1300.1	Can EU		1300.1;#PUERTO <--> PUERTO
+	EU Can		1300.1,	Can EU		1300.1;#PUERTO <--> PUERTO
 
 param decision:=
 	[Arg,*,*]:	SA	SB	SC		SE	:=

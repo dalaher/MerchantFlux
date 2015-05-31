@@ -1,5 +1,7 @@
 package Model;
 
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,7 +9,7 @@ package Model;
  */
 
 import java.io.*;
-import Model.*;
+import model.*;
 import java.util.ArrayList;
 
 /**
@@ -17,9 +19,10 @@ import java.util.ArrayList;
 public class ArchiveReader {
 
     private static String filepath = "C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.dat";
-    public static String archiveReader(File filepath) throws FileNotFoundException, IOException {
+    public ArrayList archiveReader(File filepath) throws FileNotFoundException, IOException {
     BufferedReader br;
-        br = new BufferedReader(new FileReader(filepath));
+    br = new BufferedReader(new FileReader(filepath));
+    ArrayList<ArrayList> completo =new ArrayList();
     try {
         StringBuilder sb = new StringBuilder();
         String line = br.readLine();
@@ -51,7 +54,9 @@ public class ArchiveReader {
             Puerto puertaso = new Puerto(tokens2[0],tokens2[1],tokens2[2],tokens2[3],tokens2[4],tokens2[5]);
             System.out.println(puertaso.getName()+ "\t" + puertaso.getP1() + "\t"+ puertaso.getP2() + "\t"+ puertaso.getP3() + "\t"+ puertaso.getP4() + "\t"+ puertaso.getP5());
             PListasa.add(puertaso);
+            
         }
+        completo.add(PListasa);
         
         //BARCOS
         BarcoLista Blistasa = new BarcoLista();
@@ -74,8 +79,10 @@ public class ArchiveReader {
             System.out.println(barcaso.getName()+ "\t" + barcaso.getP1() + "\t"+ barcaso.getP2() + "\t"+ barcaso.getP3() + "\t"+ barcaso.getP4());
             Blistasa.add(barcaso);
         }
+        completo.add(Blistasa);
 
         //PUERTO <--> PUERTO
+        ArrayList<RelacionPuerto> RelacionPuertolistasa =new ArrayList();
         delims = "#PUERTO <--> PUERTO";
         delims2 = "\t";
         tokens = everything.split(delims);
@@ -95,14 +102,17 @@ public class ArchiveReader {
             Puerto puertaso1 = new Puerto(tokens4[0],"","","","","");
             Puerto puertaso2 = new Puerto(tokens4[1],"","","","","");
             RelacionPuerto relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[2]);
+            RelacionPuertolistasa.add(relacionasa);
             System.out.print(relacionasa.getId()+ "\t" + relacionasa.getDistancia());
             
             tokens4 = tokens2[3].split(" ");
             puertaso1 = new Puerto(tokens4[0],"","","","","");
             puertaso2 = new Puerto(tokens4[1],"","","","","");
             relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[4]);
+            RelacionPuertolistasa.add(relacionasa);
             System.out.println(relacionasa.getId()+ " \t " + relacionasa.getDistancia());
         }
+        completo.add(RelacionPuertolistasa);
         
         //PUERTO <--> BARCO
         ArrayList<RelacionPB> PBlistasa =new ArrayList();
@@ -137,11 +147,12 @@ public class ArchiveReader {
                 }
                 
             }else{bandera++; }
+        completo.add(PBlistasa);
         }
     } finally {
         br.close();
     }
-        return null;
+        return completo;
     }
    
     
