@@ -1591,7 +1591,7 @@ public class IUBarco extends javax.swing.JFrame {
         try {
             //Barco barco = BL.get(Lista.getSelectedIndex());
             //txt.setText(prueba);
-            txtBarco.setText(archiveReaderSol());
+            solution.setText(archiveReaderSol());
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1712,11 +1712,18 @@ public class IUBarco extends javax.swing.JFrame {
     }
     
     public String archiveReaderSol() throws FileNotFoundException, IOException {
-        Scanner testScanner = new Scanner(new BufferedReader(new FileReader("a.txt")));
-        while (testScanner.hasNextLine()){
-            return(testScanner.nextLine());
+      FileReader f = new FileReader("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\a.txt");
+      BufferedReader b = new BufferedReader(f);
+      StringBuilder sb = new StringBuilder();
+      String line = b.readLine();
+        while (line != null) {
+            sb.append(line);
+            sb.append(System.lineSeparator());
+            line = b.readLine();
         }
-        return "";
+        String everything = sb.toString();
+        System.out.println(everything);
+        return everything;
     }
     
      private void archiveWriter() throws FileNotFoundException, IOException {
