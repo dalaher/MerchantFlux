@@ -1374,7 +1374,6 @@ public class IUBarco extends javax.swing.JFrame {
         }
         for(RelacionPB relacion : aux){
             if (relacion.getId().matches(".*" + barco.getName())){
-                System.out.println(relacion.getId());
                 PBL.remove(relacion);
                 ListaRelacionesPB.remove(relacion.getId());
             }
@@ -1451,7 +1450,6 @@ public class IUBarco extends javax.swing.JFrame {
         }
         for(RelacionPB relacion : aux){
             if (relacion.getId().matches( puerto.getName() + ".*")){
-                System.out.println(relacion.getId());
                 PBL.remove(relacion);
                 ListaRelacionesPB.remove(relacion.getId());
             }
@@ -1462,7 +1460,6 @@ public class IUBarco extends javax.swing.JFrame {
         }
         for(RelacionPBE relacion : aux2){
             if (relacion.getId().matches( puerto.getName() + ".*")){
-                System.out.println(relacion.getId());
                 PBEL.remove(relacion);
                 ListaRelacionesPBE.remove(relacion.getId());
             }
@@ -1904,11 +1901,7 @@ public class IUBarco extends javax.swing.JFrame {
     String rango;
     String valorVacios;
     
-    /*if(RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex())== null)
-            RPSList.get(ListaPuertosOrigen.getSelectedIndex()).add(new RelacionPuerto(PL.get(ListaPuertosDestino.getSelectedIndex()), distancia.getText()));
-        RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()).setDistancia(distancia.getText());
-        System.out.println(RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()));*/
-
+    
     public ArrayList archiveReader(File filepath) throws FileNotFoundException, IOException {
     BufferedReader br;
     br = new BufferedReader(new FileReader(filepath));
@@ -1929,8 +1922,6 @@ public class IUBarco extends javax.swing.JFrame {
         String delims = "#Puertos";
         String delims2 = "\t";
         String[] tokens = everything.split(delims);
-        System.out.println(tokens[0]);
-        System.out.println("------------------------------------------------");
         for (int i = 1; i < tokens.length-1; i++){
             String[] tokens3 = tokens[i].split(delims2);
             String[] tokens2 = new String[6];
@@ -1942,7 +1933,6 @@ public class IUBarco extends javax.swing.JFrame {
                 }
             }
             Puerto puertaso = new Puerto(tokens2[0],tokens2[1],tokens2[2],tokens2[3],tokens2[4],tokens2[5]);
-            System.out.println(puertaso.getName()+ "\t" + puertaso.getP1() + "\t"+ puertaso.getP2() + "\t"+ puertaso.getP3() + "\t"+ puertaso.getP4() + "\t"+ puertaso.getP5());
             PListasa.add(puertaso);
             ListaPuertos.add(puertaso.getName());
             ListaPuertosOrigen.add(puertaso.getName());
@@ -1955,8 +1945,6 @@ public class IUBarco extends javax.swing.JFrame {
         delims = "#Barcos";
         delims2 = "\t";
         tokens = everything.split(delims);
-        System.out.println(tokens[1]);
-        System.out.println("------------------------------------------------");
         for (int i = 2; i < tokens.length-1; i++){
             String[] tokens3 = tokens[i].split(delims2);
             String[] tokens2 = new String[5];
@@ -1968,7 +1956,6 @@ public class IUBarco extends javax.swing.JFrame {
                 }
             }
             Barco barcaso = new Barco(tokens2[0],tokens2[1],tokens2[2],tokens2[3],tokens2[4]);
-            System.out.println(barcaso.getName()+ "\t" + barcaso.getP1() + "\t"+ barcaso.getP2() + "\t"+ barcaso.getP3() + "\t"+ barcaso.getP4());
             Blistasa.add(barcaso);
             ListaBarcos.add(barcaso.getName());
         }
@@ -1979,8 +1966,6 @@ public class IUBarco extends javax.swing.JFrame {
         delims = "#PUERTO <--> PUERTO";
         delims2 = "\t";
         tokens = everything.split(delims);
-        System.out.println(tokens[1]);
-        System.out.println("------------------------------------------------");
         for (int i = 2; i < tokens.length-1; i++){
             String[] tokens3 = tokens[i].split(delims2);
             String[] tokens2 = new String[5];
@@ -1996,7 +1981,6 @@ public class IUBarco extends javax.swing.JFrame {
             Puerto puertaso2 = new Puerto(tokens4[1],"","","","","");
             RelacionPuerto relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[2]);
             RelacionPuertolistasa.add(relacionasa);
-            System.out.print(relacionasa.getId()+ "\t" + relacionasa.getDistancia());
             ListaRelacionesPuertos.add(relacionasa.getId());
             
             tokens4 = tokens2[3].split(" ");
@@ -2004,7 +1988,6 @@ public class IUBarco extends javax.swing.JFrame {
             puertaso2 = new Puerto(tokens4[1],"","","","","");
             relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[4]);
             RelacionPuertolistasa.add(relacionasa);
-            System.out.println(relacionasa.getId()+ " \t " + relacionasa.getDistancia());
             ListaRelacionesPuertos.add(relacionasa.getId());
         }
         completo.add(RelacionPuertolistasa);
@@ -2014,12 +1997,9 @@ public class IUBarco extends javax.swing.JFrame {
         delims = "#PUERTO <--> BARCO";
         delims2 = "\t";
         tokens = everything.split(delims);
-        System.out.println(tokens[1]);
-        System.out.println("------------------------------------------------");
         int bandera = 1;
         for (int i = 2; i < tokens.length-1; i++){
             if (!tokens[i].contains("param")){
-                System.out.println("llegue" + i);
                 String[] tokens3 = tokens[i].split(delims2);
                 String[] tokens2 = new String[11];
                 int k=0;
@@ -2038,8 +2018,7 @@ public class IUBarco extends javax.swing.JFrame {
                     PBlistasa.get((i-9)*(PListasa.size()) + j).setPropiedad2(tokens2[j+1]);}
                     if(bandera==3){
                     RelacionPB relacionasa=PBlistasa.get((i-16)*(PListasa.size()) + j);
-                    relacionasa.setPropiedad3(tokens2[j+1]);
-                    System.out.println(relacionasa.getId()+ "\t" + relacionasa.getPropiedad()+ "\t"+ relacionasa.getPropiedad2()+ "\t"+ relacionasa.getPropiedad3());} 
+                    relacionasa.setPropiedad3(tokens2[j+1]);}
                 }
                 
             }else{bandera++; }
