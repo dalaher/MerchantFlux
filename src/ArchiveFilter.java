@@ -23,7 +23,10 @@ public class ArchiveFilter extends FileFilter {
         String extension = filename.substring(dot + 1);
   
         if (extension != null) {             
-            if( extension.equals("txt")) {                     
+            if( extension.equals("dat") ||
+                extension.equals("mod") ||
+                extension.equals("sol") ||
+                extension.equals("run")) {                     
                 return true;             
             } else {                 
                 return false;             
@@ -32,6 +35,6 @@ public class ArchiveFilter extends FileFilter {
         return false;     
     }       
     public String getDescription() {         
-        return "Ficheros de matemáticas";     
+        return "Ficheros de AMPL";     
     } 
 }

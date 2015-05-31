@@ -1,0 +1,111 @@
+# Set y parámetros de Puertos
+set Puertos := Arg Uru Bra EU Can Ang Cam Mar Sen;
+
+param:	tasa_contenedor	ratio_contenedor	tiempo	Q		Q_valor:=#Puertos
+Bra	15.07		1920			0.04166	122233		968415.3#Puertos	
+Arg	15.07		1920			0.04166	76930		509767.17#Puertos
+Uru	15.07		1920			0.04166	4726		36710.95#Puertos
+EU	7.75		1920			0.04166	0		0#Puertos
+Can	10.075		2496			0.04166	0		0#Puertos
+Ang	30		1920			0.04166	-25338		-409399.43#Puertos
+Cam	30		1920			0.04166	-6563		-47824.85#Puertos
+Mar	30		1920			0.04166	-150177		-876240.07#Puertos
+Sen	30		1920			0.04166	-21811		-181429.07;#Puertos
+
+# Set y parámetros de Barcos
+set Barcos:= SA	SB	SE;
+								#Barcos
+param: capacidad	velocidad	costo_diario	fuel_km:=#Barcos
+SA	1164		722.273		21289		21.967#Barcos	
+SB	1810		811.109		21940		24.96#Barcos
+#SC	2728		791.797		22865		33.49#Barcos
+#SD	3428		799.522		23571		39.138#Barcos
+SE	4211		965.606		24360		37.931;#Barcos
+#SF	5652		965.606		25813		48.102;#Barcos
+
+# parametros de barcos y puertos#PUERTO <--> BARCO
+param fuel_puerto:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
+		SA	68.23	68.23	68.23	68.23	68.23	68.23	68.23	68.23	68.23#PUERTO <--> BARCO
+		SB	77.62	77.62	77.62	77.62	77.62	77.62	77.62	77.62	77.62#PUERTO <--> BARCO
+		#SC	104.05	104.05	104.05	104.05	104.05	104.05	104.05	104.05	104.05#PUERTO <--> BARCO
+		#SD	121.59	121.59	121.59	121.59	121.59	121.59	121.59	121.59	121.59#PUERTO <--> BARCO
+		SE	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84;#PUERTO <--> BARCO
+		#SF	149.44	149.44	149.44	149.44	149.44	149.44	149.44	149.44	149.44;#PUERTO <--> BARCO
+
+param tasa_fija:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
+		SA	8500	8500	8500	8500	8500	12000	12000	12000	12000#PUERTO <--> BARCO
+		SB	8670	8670	8670	8670	8670	12240	12240	12240	12240#PUERTO <--> BARCO
+		#SC	8843.4	8843.4	8843.4	8843.4	8843.4	12484.8	12484.8	12484.8	12484.8#PUERTO <--> BARCO
+		#SD	9020.26	9020.26	9020.26	9020.26	9020.26	12734.4	12734.4	12734.4	12734.4#PUERTO <--> BARCO
+		SE	9200.67	9200.67	9200.67	9200.67	9200.67	12989.1	12989.1	12989.1	12989.1;#PUERTO <--> BARCO
+		#SF	9384.69	9384.69	9384.69	9384.69	9384.69	13248.9	13248.9	13248.9	13248.9;#PUERTO <--> BARCO
+
+param tasa_variable:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
+		SA	1611.44	1611.44	1611.44	5393.04	7765.98	8000	8000	8000	8000#PUERTO <--> BARCO
+		SB	2428.76	2428.76	2428.76	8386.09	12075.9	11200	11200	11200	11200#PUERTO <--> BARCO
+		#SC	3590.21	3590.21	3590.21	12639.4	18200.6	15680	15680	15680	15680#PUERTO <--> BARCO
+		#SD	4475.85	4475.85	4475.85	15882.6	22870.9	21952	21952	21952	21952#PUERTO <--> BARCO
+		SE	5466.5	5466.5	5466.5	19510.4	28094.9	30732.8	30732.8	30732.8	30732.8;#PUERTO <--> BARCO
+		#SF	7289.6	7289.6	7289.6	26186.8	37709.1	43025.9	43025.9	43025.9	43025.9;#PUERTO <--> BARCO
+		
+# Otros parametros
+
+param perdidas:= 0.15;
+param temporada:= 365;
+param valor_contenedor:= 1500;
+#PUERTO <--> PUERTO
+param: arcos: 		distancia:=#PUERTO <--> PUERTO
+	Arg Bra		1900,	Bra Arg		1858#PUERTO <--> PUERTO
+	Uru Bra		1648.5,	Bra Uru		2200#PUERTO <--> PUERTO
+	Arg Uru		210.91,	Uru Arg		210.91#PUERTO <--> PUERTO
+	Bra EU		6827.4,	EU Bra		6827.4#PUERTO <--> PUERTO
+	Bra Can		5571.2,	Can Bra		5571.2#PUERTO <--> PUERTO
+	EU Ang		6822.4,	Ang EU		6822.4#PUERTO <--> PUERTO
+	EU Cam		6250.2,	Cam EU		6250.2#PUERTO <--> PUERTO
+	EU Mar		44.677,	Mar EU		44.677#PUERTO <--> PUERTO
+	EU Sen		2481.5,	Sen EU		2481.5#PUERTO <--> PUERTO
+	Can Ang		4468,	Ang Can		4468#PUERTO <--> PUERTO
+	Can Cam		4755.1,	Cam Can		4755.1#PUERTO <--> PUERTO
+	Can Mar		1080.1,	Mar Can		1080.1#PUERTO <--> PUERTO
+	Can Sen		1329.4,	Sen Can		1329.4#PUERTO <--> PUERTO
+	EU Can		1300.1	Can EU		1300.1;#PUERTO <--> PUERTO
+
+param decision:=
+	[Arg,*,*]:	SA	SB	SC		SE	:=
+		Bra	0	0	0		1	
+		Uru	0	0	0		1
+	[Uru,*,*]:	SA	SB	SC		SE	:=
+		Bra	0	0	0		1
+		Arg	0	0	0		1
+	[Bra,*,*]:	SA	SB	SC		SE	:=
+		EU	0	0	0		1	
+		Can	0	0	0		1	
+		Arg	0	0	0		1	
+		Uru	0	0	0		1	
+	[EU,*,*]:	SA	SB	SC		SE	:=
+		Bra	0	0	0		1	
+		Can	1	1	1		1
+		Ang	0	0	0		1	
+		Cam	1	0	0		0	
+		Mar	0	1	0		0	
+		Sen	0	1	0		0	
+	[Can,*,*]:	SA	SB	SC		SE	:=
+		Bra	0	0	0		1	
+		EU	1	1	1		1
+		Ang	0	0	0		1	
+		Cam	0	1	0		0	
+		Mar	0	1	0		0	
+		Sen	0	1	0		0	
+	[Ang,*,*]:	SA	SB	SC		SE	:=
+		EU	0	0	0		1	
+		Can	0	0	0		1	
+	[Cam,*,*]:	SA	SB	SC		SE	:=
+		EU	0	1	0		0	
+		Can	0	1	0		0	
+	[Mar,*,*]:	SA	SB	SC		SE	:=
+		EU	1	0	0		0	
+		Can	0	1	0		0	
+	[Sen,*,*]:	SA	SB	SC		SE	:=
+		EU	0	1	0		0	
+		Can	0	1	0		0;	
+	

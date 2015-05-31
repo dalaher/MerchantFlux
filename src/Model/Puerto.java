@@ -60,9 +60,10 @@ public class Puerto {
     public void setP4(String p4) {
         this.p4 = p4;
     }
-    
-    public void setP5(String p4) {
+
+    public void setP5(String p5) {
         this.p5 = p5;
     }
     
+   
 }

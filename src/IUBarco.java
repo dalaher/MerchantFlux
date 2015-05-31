@@ -1,6 +1,7 @@
 
 
 
+import static Model.ArchiveReader.archiveReader;
 import Model.PuertoLista;
 import Model.Puerto;
 import Model.PuertoEspLista;
@@ -1327,8 +1328,12 @@ public class IUBarco extends javax.swing.JFrame {
         filechooser.addChoosableFileFilter(new ArchiveFilter());
         int retorno = filechooser.showOpenDialog(jMenu1);
         if (retorno == JFileChooser.APPROVE_OPTION){
-            File file = filechooser.getSelectedFile();
-            //Image.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath())); 
+            File file = filechooser.getSelectedFile(); 
+            try {
+                archiveReader(file);//Image.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath())); 
+            } catch (IOException ex) {
+                Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_OpenMenuActionPerformed
 
@@ -1586,7 +1591,7 @@ public class IUBarco extends javax.swing.JFrame {
         try {
             //Barco barco = BL.get(Lista.getSelectedIndex());
             //txt.setText(prueba);
-            txtBarco.setText(archiveReader());
+            txtBarco.setText(archiveReaderSol());
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1706,7 +1711,7 @@ public class IUBarco extends javax.swing.JFrame {
         return relacion.getId() + " "+ relacion.getDistancia();
     }
     
-    public String archiveReader() throws FileNotFoundException, IOException {
+    public String archiveReaderSol() throws FileNotFoundException, IOException {
         Scanner testScanner = new Scanner(new BufferedReader(new FileReader("a.txt")));
         while (testScanner.hasNextLine()){
             return(testScanner.nextLine());
