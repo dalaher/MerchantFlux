@@ -1,7 +1,6 @@
 
 
 
-import static Model.ArchiveReader.archiveReader;
 import Model.PuertoLista;
 import Model.Puerto;
 import Model.PuertoEspLista;
@@ -57,13 +56,13 @@ public class IUBarco extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        costo_diario = new javax.swing.JTextField();
-        fuel_km = new javax.swing.JTextField();
+        capacidad = new javax.swing.JTextField();
+        velocidad = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        velocidad = new javax.swing.JTextField();
+        costo_diario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        capacidad = new javax.swing.JTextField();
+        fuel_km = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         saveButtonBarco = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -76,17 +75,17 @@ public class IUBarco extends javax.swing.JFrame {
         upBarcos = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        Q = new javax.swing.JTextField();
-        Q_valor = new javax.swing.JTextField();
+        tasa_contenedor = new javax.swing.JTextField();
+        ratio_contenedor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tasa_contenedor = new javax.swing.JTextField();
+        atraque = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        ratio_contenedor = new javax.swing.JTextField();
+        Q = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         saveButtonPuerto = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        atraque = new javax.swing.JTextField();
+        Q_valor = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPuertos = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
@@ -182,9 +181,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Parámetros"));
 
-        costo_diario.addActionListener(new java.awt.event.ActionListener() {
+        capacidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                costo_diarioActionPerformed(evt);
+                capacidadActionPerformed(evt);
             }
         });
 
@@ -192,9 +191,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jLabel3.setText("Coste de Combustible por milla nautica");
 
-        velocidad.addActionListener(new java.awt.event.ActionListener() {
+        costo_diario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                velocidadActionPerformed(evt);
+                costo_diarioActionPerformed(evt);
             }
         });
 
@@ -216,17 +215,17 @@ public class IUBarco extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fuel_km)
+                    .addComponent(costo_diario)
                     .addComponent(capacidad)
                     .addComponent(velocidad)
-                    .addComponent(costo_diario)
-                    .addComponent(fuel_km)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(saveButtonBarco)
                             .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(saveButtonBarco)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
+                            .addComponent(jLabel3))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -234,21 +233,21 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(costo_diario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(fuel_km, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(costo_diario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fuel_km, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(saveButtonBarco)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -371,9 +370,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Parámetros"));
 
-        Q.addActionListener(new java.awt.event.ActionListener() {
+        tasa_contenedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QActionPerformed(evt);
+                tasa_contenedorActionPerformed(evt);
             }
         });
 
@@ -381,9 +380,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jLabel6.setText("Valor de exportación/importación(+/-) en miles de euros");
 
-        tasa_contenedor.addActionListener(new java.awt.event.ActionListener() {
+        atraque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tasa_contenedorActionPerformed(evt);
+                atraqueActionPerformed(evt);
             }
         });
 
@@ -400,9 +399,9 @@ public class IUBarco extends javax.swing.JFrame {
 
         jLabel10.setText("Tiempo en el proceso de llegada/salida");
 
-        atraque.addActionListener(new java.awt.event.ActionListener() {
+        Q_valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atraqueActionPerformed(evt);
+                Q_valorActionPerformed(evt);
             }
         });
 
@@ -413,45 +412,45 @@ public class IUBarco extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ratio_contenedor)
-                    .addComponent(tasa_contenedor)
                     .addComponent(Q)
+                    .addComponent(atraque)
+                    .addComponent(tasa_contenedor)
+                    .addComponent(ratio_contenedor)
                     .addComponent(Q_valor)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
                             .addComponent(jLabel10)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel7)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel5)
-                            .addComponent(saveButtonPuerto))
-                        .addGap(0, 477, Short.MAX_VALUE))
-                    .addComponent(atraque))
+                            .addComponent(saveButtonPuerto)
+                            .addComponent(jLabel7))
+                        .addGap(0, 477, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Q, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Q_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tasa_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ratio_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ratio_contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(atraque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Q, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Q_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(saveButtonPuerto)
                 .addGap(23, 23, 23))
@@ -1330,7 +1329,11 @@ public class IUBarco extends javax.swing.JFrame {
         if (retorno == JFileChooser.APPROVE_OPTION){
             File file = filechooser.getSelectedFile(); 
             try {
-                archiveReader(file);//Image.setIcon(new javax.swing.ImageIcon(file.getAbsolutePath())); 
+                ArrayList<ArrayList> carga = archiveReader(file);
+                PL = (PuertoLista) carga.get(0);
+                BL = (BarcoLista) carga.get(1);
+                RPL =carga.get(2);
+                PBL = carga.get(3);                
             } catch (IOException ex) {
                 Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1388,21 +1391,21 @@ public class IUBarco extends javax.swing.JFrame {
         txtBarco.setText(prueba);
     }//GEN-LAST:event_upBarcosActionPerformed
 
-    private void QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_QActionPerformed
-
     private void tasa_contenedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tasa_contenedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tasa_contenedorActionPerformed
 
+    private void atraqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atraqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_atraqueActionPerformed
+
     private void saveButtonPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonPuertoActionPerformed
          // TODO add your handling code here:
-        PL.get(ListaPuertos.getSelectedIndex()).setP1(Q.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP2(Q_valor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP3(tasa_contenedor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP4(ratio_contenedor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP5(atraque.getText());
+        PL.get(ListaPuertos.getSelectedIndex()).setP1(tasa_contenedor.getText());
+        PL.get(ListaPuertos.getSelectedIndex()).setP2(ratio_contenedor.getText());
+        PL.get(ListaPuertos.getSelectedIndex()).setP3(atraque.getText());
+        PL.get(ListaPuertos.getSelectedIndex()).setP4(Q.getText());
+        PL.get(ListaPuertos.getSelectedIndex()).setP5(Q_valor.getText());
         
         /*try {
             archiveWriter();
@@ -1604,10 +1607,10 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void ListaBarcosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaBarcosActionPerformed
         // TODO add your handling code here:
-        costo_diario.setText(BL.get(ListaBarcos.getSelectedIndex()).getP1());
-        fuel_km.setText(BL.get(ListaBarcos.getSelectedIndex()).getP2());
-        velocidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP3());
-        capacidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP4());
+        capacidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP1());
+        velocidad.setText(BL.get(ListaBarcos.getSelectedIndex()).getP2());
+        costo_diario.setText(BL.get(ListaBarcos.getSelectedIndex()).getP3());
+        fuel_km.setText(BL.get(ListaBarcos.getSelectedIndex()).getP4());
 
     }//GEN-LAST:event_ListaBarcosActionPerformed
 
@@ -1647,11 +1650,11 @@ public class IUBarco extends javax.swing.JFrame {
     }//GEN-LAST:event_ListaRelacionesPBActionPerformed
 
     private void ListaPuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaPuertosActionPerformed
-        Q.setText(PL.get(ListaPuertos.getSelectedIndex()).getP1());
-        Q_valor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP2());
-        tasa_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP3());
-        ratio_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP4());
-        atraque.setText(PL.get(ListaPuertos.getSelectedIndex()).getP5());
+        tasa_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP1());
+        ratio_contenedor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP2());
+        atraque.setText(PL.get(ListaPuertos.getSelectedIndex()).getP3());
+        Q.setText(PL.get(ListaPuertos.getSelectedIndex()).getP4());
+        Q_valor.setText(PL.get(ListaPuertos.getSelectedIndex()).getP5());
     }//GEN-LAST:event_ListaPuertosActionPerformed
 
     private void ListaRelacionesPuertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPuertosActionPerformed
@@ -1676,23 +1679,23 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void saveButtonBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonBarcoActionPerformed
         // TODO add your handling code here:
-        BL.get(ListaBarcos.getSelectedIndex()).setP1(costo_diario.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP2(fuel_km.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP3(velocidad.getText());
-        BL.get(ListaBarcos.getSelectedIndex()).setP4(capacidad.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP1(capacidad.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP2(velocidad.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP3(costo_diario.getText());
+        BL.get(ListaBarcos.getSelectedIndex()).setP4(fuel_km.getText());
     }//GEN-LAST:event_saveButtonBarcoActionPerformed
-
-    private void velocidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_velocidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_velocidadActionPerformed
 
     private void costo_diarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costo_diarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_costo_diarioActionPerformed
 
-    private void atraqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atraqueActionPerformed
+    private void capacidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_capacidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_atraqueActionPerformed
+    }//GEN-LAST:event_capacidadActionPerformed
+
+    private void Q_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Q_valorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Q_valorActionPerformed
     
     public String todojunto (Barco barco){
         return barco.getName() + " "+ barco.getP1()+ " " + barco.getP2()+ " " + barco.getP3()+ " " + barco.getP4();
@@ -1905,5 +1908,170 @@ public class IUBarco extends javax.swing.JFrame {
             RPSList.get(ListaPuertosOrigen.getSelectedIndex()).add(new RelacionPuerto(PL.get(ListaPuertosDestino.getSelectedIndex()), distancia.getText()));
         RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()).setDistancia(distancia.getText());
         System.out.println(RPSList.get(ListaPuertosOrigen.getSelectedIndex()).get(ListaPuertosDestino.getSelectedIndex()));*/
-    
+
+    public ArrayList archiveReader(File filepath) throws FileNotFoundException, IOException {
+    BufferedReader br;
+    br = new BufferedReader(new FileReader(filepath));
+    ArrayList<ArrayList> completo =new ArrayList();
+    try {
+        StringBuilder sb = new StringBuilder();
+        String line = br.readLine();
+
+        while (line != null) {
+            sb.append(line);
+            sb.append(System.lineSeparator());
+            line = br.readLine();
+        }
+        String everything = sb.toString();
+        
+        //PUERTOS
+        PuertoLista PListasa = new PuertoLista();
+        String delims = "#Puertos";
+        String delims2 = "\t";
+        String[] tokens = everything.split(delims);
+        System.out.println(tokens[0]);
+        System.out.println("------------------------------------------------");
+        for (int i = 1; i < tokens.length-1; i++){
+            String[] tokens3 = tokens[i].split(delims2);
+            String[] tokens2 = new String[6];
+            int k=0;
+            for (int j=0; j <tokens3.length; j++){
+                if(!"".equals(tokens3[j])){
+                    tokens2[k]=tokens3[j];                   
+                    k++;
+                }
+            }
+            Puerto puertaso = new Puerto(tokens2[0],tokens2[1],tokens2[2],tokens2[3],tokens2[4],tokens2[5]);
+            System.out.println(puertaso.getName()+ "\t" + puertaso.getP1() + "\t"+ puertaso.getP2() + "\t"+ puertaso.getP3() + "\t"+ puertaso.getP4() + "\t"+ puertaso.getP5());
+            PListasa.add(puertaso);
+            ListaPuertos.add(puertaso.getName());
+            ListaPuertosOrigen.add(puertaso.getName());
+            ListaPuertosDestino.add(puertaso.getName());
+        }
+        completo.add(PListasa);
+        
+        //BARCOS
+        BarcoLista Blistasa = new BarcoLista();
+        delims = "#Barcos";
+        delims2 = "\t";
+        tokens = everything.split(delims);
+        System.out.println(tokens[1]);
+        System.out.println("------------------------------------------------");
+        for (int i = 2; i < tokens.length-1; i++){
+            String[] tokens3 = tokens[i].split(delims2);
+            String[] tokens2 = new String[5];
+            int k=0;
+            for (int j=0; j <tokens3.length; j++){
+                if(!"".equals(tokens3[j])){
+                    tokens2[k]=tokens3[j];                   
+                    k++;
+                }
+            }
+            Barco barcaso = new Barco(tokens2[0],tokens2[1],tokens2[2],tokens2[3],tokens2[4]);
+            System.out.println(barcaso.getName()+ "\t" + barcaso.getP1() + "\t"+ barcaso.getP2() + "\t"+ barcaso.getP3() + "\t"+ barcaso.getP4());
+            Blistasa.add(barcaso);
+            ListaBarcos.add(barcaso.getName());
+        }
+        completo.add(Blistasa);
+
+        //PUERTO <--> PUERTO
+        ArrayList<RelacionPuerto> RelacionPuertolistasa =new ArrayList();
+        delims = "#PUERTO <--> PUERTO";
+        delims2 = "\t";
+        tokens = everything.split(delims);
+        System.out.println(tokens[1]);
+        System.out.println("------------------------------------------------");
+        for (int i = 2; i < tokens.length-1; i++){
+            String[] tokens3 = tokens[i].split(delims2);
+            String[] tokens2 = new String[5];
+            int k=0;
+            for (int j=0; j <tokens3.length; j++){
+                if(!"".equals(tokens3[j])){
+                    tokens2[k]=tokens3[j];                   
+                    k++;
+                }
+            }
+            String[] tokens4 = tokens2[1].split(" ");
+            Puerto puertaso1 = new Puerto(tokens4[0],"","","","","");
+            Puerto puertaso2 = new Puerto(tokens4[1],"","","","","");
+            RelacionPuerto relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[2]);
+            RelacionPuertolistasa.add(relacionasa);
+            System.out.print(relacionasa.getId()+ "\t" + relacionasa.getDistancia());
+            ListaRelacionesPuertos.add(relacionasa.getId());
+            
+            tokens4 = tokens2[3].split(" ");
+            puertaso1 = new Puerto(tokens4[0],"","","","","");
+            puertaso2 = new Puerto(tokens4[1],"","","","","");
+            relacionasa = new RelacionPuerto(puertaso1,puertaso2,tokens2[4]);
+            RelacionPuertolistasa.add(relacionasa);
+            System.out.println(relacionasa.getId()+ " \t " + relacionasa.getDistancia());
+            ListaRelacionesPuertos.add(relacionasa.getId());
+        }
+        completo.add(RelacionPuertolistasa);
+        
+        //PUERTO <--> BARCO
+        ArrayList<RelacionPB> PBlistasa =new ArrayList();
+        delims = "#PUERTO <--> BARCO";
+        delims2 = "\t";
+        tokens = everything.split(delims);
+        System.out.println(tokens[1]);
+        System.out.println("------------------------------------------------");
+        int bandera = 1;
+        for (int i = 2; i < tokens.length-1; i++){
+            if (!tokens[i].contains("param")){
+                System.out.println("llegue" + i);
+                String[] tokens3 = tokens[i].split(delims2);
+                String[] tokens2 = new String[11];
+                int k=0;
+                for (int j=0; j <tokens3.length; j++){
+                    if(!"".equals(tokens3[j])){
+                        tokens2[k]=tokens3[j];                   
+                        k++;
+                    }
+                }
+                for(int j = 0; j<PListasa.size(); j++){
+                    if(bandera==1){
+                    RelacionPB relacionasa = new RelacionPB(PListasa.get(j),Blistasa.get(i-2), tokens2[j+1],"","");
+                    PBlistasa.add(relacionasa);
+                    ListaRelacionesPB.add(relacionasa.getId());}
+                    if(bandera==2){
+                    PBlistasa.get((i-9)*(PListasa.size()) + j).setPropiedad2(tokens2[j+1]);}
+                    if(bandera==3){
+                    RelacionPB relacionasa=PBlistasa.get((i-16)*(PListasa.size()) + j);
+                    relacionasa.setPropiedad3(tokens2[j+1]);
+                    System.out.println(relacionasa.getId()+ "\t" + relacionasa.getPropiedad()+ "\t"+ relacionasa.getPropiedad2()+ "\t"+ relacionasa.getPropiedad3());} 
+                }
+                
+            }else{bandera++; }
+        completo.add(PBlistasa);    
+        }
+        
+        //perdidas
+        delims = "#perdidas";
+        delims2 = " ";
+        tokens = everything.split(delims);
+        String[] tokens2 = tokens[1].split(delims2);
+        porcentaje = tokens2[2];
+        perdidas.setText(tokens2[2]);
+        
+        //Temporada
+        delims = "#temporada";
+        delims2 = " ";
+        tokens = everything.split(delims);
+        tokens2 = tokens[1].split(delims2);
+        rango = tokens2[2];
+        temporada.setText(tokens2[2]);
+ 
+        //Valor Vacios
+        delims = "#valorContenedor";
+        delims2 = " ";
+        tokens = everything.split(delims);
+        tokens2 = tokens[1].split(delims2);
+        valorVacios = tokens2[2];
+        valor_contenedor.setText(tokens2[2]);  
+    } finally {
+        br.close();
+    }
+        return completo;
+    }  
 }
