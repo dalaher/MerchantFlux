@@ -1446,7 +1446,6 @@ public class IUBarco extends javax.swing.JFrame {
         if (relacion.getId().contains(puerto.getName())){
                 RPL.remove(relacion);
                 ListaRelacionesPuertos.remove(relacion.getId());
-                System.out.println("llegue");
             }
         }
         ArrayList<RelacionPB> aux = new ArrayList();
@@ -2159,7 +2158,6 @@ public class IUBarco extends javax.swing.JFrame {
             
             bw.close();
 	} finally {
-        System.out.print("Llegué aquí");
     }
     }
     
