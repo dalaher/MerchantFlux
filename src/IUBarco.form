@@ -38,7 +38,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="OpenMenu">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Abrir"/>
+                <Property name="text" type="java.lang.String" value="Abrir modelo de datos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OpenMenuActionPerformed"/>
@@ -46,7 +46,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="saveArchive">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Guardar cambios"/>
+                <Property name="text" type="java.lang.String" value="Guardar modelo de datos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveArchiveActionPerformed"/>

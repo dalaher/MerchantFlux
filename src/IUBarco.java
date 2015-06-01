@@ -1285,7 +1285,7 @@ public class IUBarco extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        OpenMenu.setText("Abrir");
+        OpenMenu.setText("Abrir modelo de datos");
         OpenMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OpenMenuActionPerformed(evt);
@@ -1293,7 +1293,7 @@ public class IUBarco extends javax.swing.JFrame {
         });
         jMenu1.add(OpenMenu);
 
-        saveArchive.setText("Guardar cambios");
+        saveArchive.setText("Guardar modelo de datos");
         saveArchive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveArchiveActionPerformed(evt);
