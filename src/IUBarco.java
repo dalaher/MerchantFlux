@@ -1721,7 +1721,7 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void RunSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSolutionActionPerformed
         try {
-            archiveWriter("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.dat");
+            archiveWriter(System.getProperty("user.dir")+"\\modelo.dat");
             archiveWriterDecision();
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
@@ -2200,7 +2200,7 @@ public class IUBarco extends javax.swing.JFrame {
         
         try {
 	// if file doesnt exists, then create it
-            FileWriter fw = new FileWriter("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.dat",true);
+            FileWriter fw = new FileWriter(System.getProperty("user.dir")+"\\modelo.dat",true);
             BufferedWriter bw = new BufferedWriter(fw);
             String noUsado=noUsar.getText();
             //desision
