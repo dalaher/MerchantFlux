@@ -11,15 +11,9 @@ import Model.RelacionPBE;
 import Model.RelacionPuerto;
 import java.io.*;
 import javax.swing.JFileChooser;
-import java.awt.Component;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.DefaultListModel;
-import javax.swing.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -162,6 +156,9 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         solution = new javax.swing.JTextPane();
         loadSolution = new javax.swing.JButton();
+        RunSolution = new javax.swing.JButton();
+        noUsar = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         OpenMenu = new javax.swing.JMenuItem();
@@ -1243,6 +1240,15 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        RunSolution.setText("Ejecutar Solucion");
+        RunSolution.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RunSolutionActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Sin Usar");
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -1252,14 +1258,24 @@ public class IUBarco extends javax.swing.JFrame {
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1063, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
+                .addComponent(RunSolution)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noUsar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(loadSolution)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
-                .addComponent(loadSolution)
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loadSolution)
+                    .addComponent(RunSolution)
+                    .addComponent(noUsar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1566,8 +1582,15 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void saveArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveArchiveActionPerformed
         // TODO add your handling code here:
+        File file = null;
+            JFileChooser filechooser = new JFileChooser();
+            filechooser.setCurrentDirectory(null);
+            filechooser.addChoosableFileFilter(new ArchiveFilter());
+            int retorno = filechooser.showOpenDialog(jMenu1);
+            if (retorno == JFileChooser.APPROVE_OPTION){
+                file = filechooser.getSelectedFile();} 
         try {
-            archiveWriter();
+            archiveWriter(file.getAbsolutePath());
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1593,8 +1616,6 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void loadSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadSolutionActionPerformed
         try {
-            //Barco barco = BL.get(Lista.getSelectedIndex());
-            //txt.setText(prueba);
             solution.setText(archiveReaderSol());
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
@@ -1697,6 +1718,21 @@ public class IUBarco extends javax.swing.JFrame {
     private void Q_valorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Q_valorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Q_valorActionPerformed
+
+    private void RunSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSolutionActionPerformed
+        try {
+            archiveWriter("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.dat");
+            archiveWriterDecision();
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Runtime aplicacion = Runtime.getRuntime(); 
+        try {       
+            aplicacion.exec("cmd.exe /k "+System.getProperty("user.dir")+"\\ejecucion.bat");
+        } catch (IOException ex) {
+            Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_RunSolutionActionPerformed
     
     public String todojunto (Barco barco){
         return barco.getName() + " "+ barco.getP1()+ " " + barco.getP2()+ " " + barco.getP3()+ " " + barco.getP4();
@@ -1716,7 +1752,7 @@ public class IUBarco extends javax.swing.JFrame {
     }
     
     public String archiveReaderSol() throws FileNotFoundException, IOException {
-      FileReader f = new FileReader("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.sol");
+      FileReader f = new FileReader(System.getProperty("user.dir")+"\\modelo.sol");
       BufferedReader b = new BufferedReader(f);
       StringBuilder sb = new StringBuilder();
       String line = b.readLine();
@@ -1776,6 +1812,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JMenuItem OpenMenu;
     private javax.swing.JTextField Q;
     private javax.swing.JTextField Q_valor;
+    private javax.swing.JButton RunSolution;
     private javax.swing.JTextField T1;
     private javax.swing.JTextField T3;
     private javax.swing.JButton addButtonBarco;
@@ -1814,6 +1851,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1852,6 +1890,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton loadSolution;
+    private javax.swing.JTextField noUsar;
     private javax.swing.JTextField perdidas;
     private javax.swing.JTextField practicaje;
     private javax.swing.JTextField ratio_contenedor;
@@ -2047,14 +2086,10 @@ public class IUBarco extends javax.swing.JFrame {
         return completo;
     }  
 
-     private void archiveWriter() throws FileNotFoundException, IOException {
+    private void archiveWriter(String file) throws FileNotFoundException, IOException {  
         try {
-            File file = new File("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo1.dat");
 	// if file doesnt exists, then create it
-            if (!file.exists()) {
-		file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
             
             //Puertos
@@ -2161,5 +2196,45 @@ public class IUBarco extends javax.swing.JFrame {
     }
     }
     
+    private void archiveWriterDecision() throws FileNotFoundException, IOException {
+        
+        try {
+	// if file doesnt exists, then create it
+            FileWriter fw = new FileWriter("C:\\Users\\Granfran\\Documents\\NetBeansProjects\\MerchantFlux\\modelo.dat",true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            String noUsado=noUsar.getText();
+            //desision
+            bw.write("\nparam decision:=\n");
+            for (int i =0; i<PL.size(); i++){
+                bw.write("\t["+PL.get(i).getName()+ ",*,*]:");
+                for (int j=0; j<BL.size();j++){
+                    if(!BL.get(j).getName().contains("#")){
+                    bw.write("\t" + BL.get(j).getName());
+                    }
+                }
+                bw.write("\t:=");
+                for(int k=0; k <RPL.size();k++){
+                    if (RPL.get(k).getPuerto().getName().contains(PL.get(i).getName())){
+                        bw.write("\n\t\t" + RPL.get(k).getPuerto2().getName());
+                        for (int j=0; j<BL.size();j++){
+                            if(!BL.get(j).getName().contains("#")){
+                                if (RPL.get(k).getPuerto2().getName().contains(noUsado) ||
+                                        RPL.get(k).getPuerto().getName().contains(noUsado)){
+                                    bw.write("\t0" );}else{bw.write("\t1");
+                                }
+                            }
+                        }
+                    }
+                }
+                if (i==PL.size()-1){
+                    bw.write(";");
+                }else{
+                    bw.write("\n");
+                }
+            }
+            bw.close();
+	} finally {
+    }
+    }
 }
 
