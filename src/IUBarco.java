@@ -1,14 +1,7 @@
 
 
 
-import Model.PuertoLista;
-import Model.Puerto;
-import Model.PuertoEspLista;
-import Model.BarcoLista;
-import Model.Barco;
-import Model.RelacionPB;
-import Model.RelacionPBE;
-import Model.RelacionPuerto;
+import Model.*;
 import java.io.*;
 import javax.swing.JFileChooser;
 import java.util.ArrayList;
@@ -67,6 +60,7 @@ public class IUBarco extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtBarco = new javax.swing.JTextArea();
         upBarcos = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         tasa_contenedor = new javax.swing.JTextField();
@@ -105,6 +99,7 @@ public class IUBarco extends javax.swing.JFrame {
         ListaRelacionesPuertos = new java.awt.List();
         addButtonRelacionPuerto = new javax.swing.JButton();
         deleteButtonRelacionPuerto = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         upPuertoBarco = new javax.swing.JButton();
@@ -194,9 +189,9 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Velocidad media");
+        jLabel4.setText("Velocidad media (*)");
 
-        jLabel1.setText("Capacidad");
+        jLabel1.setText("Capacidad (GT)");
 
         saveButtonBarco.setText("Guardar");
         saveButtonBarco.addActionListener(new java.awt.event.ActionListener() {
@@ -330,6 +325,8 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setText("(*) Las unidades de la velocidad y de distania deben conconrdar");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -346,7 +343,11 @@ public class IUBarco extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
@@ -355,7 +356,10 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -394,7 +398,7 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setText("Tiempo en el proceso de llegada/salida");
+        jLabel10.setText("Tiempo en el proceso de llegada/salida (dias)");
 
         Q_valor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -578,7 +582,7 @@ public class IUBarco extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Puertos", jPanel4);
 
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Distancia en millas náuticas"));
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Distancia en millas náuticas (*)"));
 
         distancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -759,6 +763,8 @@ public class IUBarco extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        jLabel12.setText("(*) Las unidades de la velocidad y de distania deben conconrdar");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -769,11 +775,14 @@ public class IUBarco extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(upDistancias))
+                        .addComponent(upDistancias)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -786,7 +795,9 @@ public class IUBarco extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(upDistancias))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(upDistancias)
+                        .addComponent(jLabel12)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -1383,7 +1394,7 @@ public class IUBarco extends javax.swing.JFrame {
         posList = ListaBarcos.getSelectedIndex();
         Barco barco=BL.get(posList);
         ListaBarcos.remove(posList);
-        BL.deleteBarco(ListaBarcos.getSelectedItem());
+        BL.remove(posList);
         ArrayList<RelacionPB> aux = new ArrayList();
         for (RelacionPB relacion : PBL){
             aux.add(relacion);
@@ -1453,7 +1464,7 @@ public class IUBarco extends javax.swing.JFrame {
         ListaPuertos.remove(posList);
         ListaPuertosOrigen.remove(posList);
         ListaPuertosDestino.remove(posList);
-        PL.deletePuerto(ListaPuertos.getSelectedItem());
+        PL.remove(posList);
         ArrayList<RelacionPuerto> aux3 = new ArrayList();
         for (RelacionPuerto relacion : RPL){
             aux3.add(relacion);
@@ -1832,6 +1843,8 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField fuel_puertoEsp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -2024,7 +2037,7 @@ public class IUBarco extends javax.swing.JFrame {
             ListaRelacionesPuertos.add(relacionasa.getId());
         }
         completo.add(RelacionPuertolistasa);
-        
+
         //PUERTO <--> BARCO
         ArrayList<RelacionPB> PBlistasa =new ArrayList();
         delims = "#PUERTO <--> BARCO";
@@ -2032,7 +2045,7 @@ public class IUBarco extends javax.swing.JFrame {
         tokens = everything.split(delims);
         int bandera = 1;
         for (int i = 2; i < tokens.length-1; i++){
-            if (!tokens[i].contains("param")){
+            if (!tokens[i].contains("param") && tokens[i].length()>3){
                 String[] tokens3 = tokens[i].split(delims2);
                 String[] tokens2 = new String[11];
                 int k=0;
@@ -2048,15 +2061,15 @@ public class IUBarco extends javax.swing.JFrame {
                     PBlistasa.add(relacionasa);
                     ListaRelacionesPB.add(relacionasa.getId());}
                     if(bandera==2){
-                    PBlistasa.get((i-9)*(PListasa.size()) + j).setPropiedad2(tokens2[j+2].replace(";",""));}
+                    PBlistasa.get((i-(3+Blistasa.size()))*(PListasa.size()) + j).setPropiedad2(tokens2[j+2].replace(";",""));}
                     if(bandera==3){
-                    PBlistasa.get((i-16)*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));}
+                    PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));}
                 }
                 
             }else{bandera++; }
         completo.add(PBlistasa);    
         }
-        
+
         //perdidas
         delims = "#perdidas";
         delims2 = " ";
@@ -2129,7 +2142,11 @@ public class IUBarco extends javax.swing.JFrame {
             //barcos y puertos
             bw.write("\n# parametros de barcos y puertos#PUERTO <--> BARCO");
             //fuel puerto
-            bw.write("\nparam fuel_puerto:\tArg\tUru\tBra\tEU\tCan\tAng\tCam\tMar\tSen:=#PUERTO <--> BARCO\n");
+            bw.write("\nparam fuel_puerto:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName());
+            }
+            bw.write(":=#PUERTO <--> BARCO\n");
             for (int i =0; i<(PBL.size()/PL.size()); i++){
                 for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
                     if(j==0){
@@ -2143,7 +2160,11 @@ public class IUBarco extends javax.swing.JFrame {
             }
             
             //tasa fija
-            bw.write("\nparam tasa_fija:\tArg\tUru\tBra\tEU\tCan\tAng\tCam\tMar\tSen:=#PUERTO <--> BARCO\n");
+             bw.write("\nparam tasa_fija:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName());
+            }
+             bw.write(":=#PUERTO <--> BARCO\n");
             for (int i =0; i<(PBL.size()/PL.size()); i++){
                 for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
                     if(j==0){
@@ -2157,7 +2178,11 @@ public class IUBarco extends javax.swing.JFrame {
             }
             
             //tasa variable
-            bw.write("\nparam tasa_variable:\tArg\tUru\tBra\tEU\tCan\tAng\tCam\tMar\tSen:=#PUERTO <--> BARCO\n");
+             bw.write("\nparam tasa_variable:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName());
+            }
+             bw.write(":=#PUERTO <--> BARCO\n");
             for (int i =0; i<(PBL.size()/PL.size()); i++){
                 for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
                     if(j==0){
@@ -2172,7 +2197,7 @@ public class IUBarco extends javax.swing.JFrame {
             
             //Otros
             bw.write("\n# otros parametros \n#perdidas\n");
-            bw.write("param perdidas:= " +porcentaje+";#perdidas #temporada "
+            bw.write("param perdidas:= " +porcentaje+";#perdidas #temporada"
             + "\nparam temporada:= "+rango+";#temporada #valorContenedor"
             + "\nparam valor_contenedor:= "+valorVacios+"; #valorContenedor");
             
@@ -2203,6 +2228,7 @@ public class IUBarco extends javax.swing.JFrame {
             FileWriter fw = new FileWriter(System.getProperty("user.dir")+"\\modelo.dat",true);
             BufferedWriter bw = new BufferedWriter(fw);
             String noUsado=noUsar.getText();
+            if ("".equals(noUsado)){noUsado="NingunPuerto";}
             //desision
             bw.write("\nparam decision:=\n");
             for (int i =0; i<PL.size(); i++){
