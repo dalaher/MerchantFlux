@@ -1,7 +1,7 @@
 ﻿Lector de archivos; Leer y pasarlo a la lista/atributos del programa  (X)
 	-Lector de barcos (X)
 	-Lector de Puertos (X)
-	-Lector de Relaciones (¿?)
+	-Lector de Relaciones (X)
 	-Lector de Otros atributos (X)
 Parseador de strings para escribirlas a archivo (X)
 Inicializador de cajas de texto de atributos en la IU (X)

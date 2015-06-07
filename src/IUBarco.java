@@ -2,6 +2,7 @@
 
 
 import Model.*;
+import java.awt.Desktop;
 import java.io.*;
 import javax.swing.JFileChooser;
 import java.util.ArrayList;
@@ -160,7 +161,8 @@ public class IUBarco extends javax.swing.JFrame {
         saveArchive = new javax.swing.JMenuItem();
         Clean = new javax.swing.JMenuItem();
         ExitMenu = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jmenu2 = new javax.swing.JMenu();
+        help = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -1329,8 +1331,22 @@ public class IUBarco extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu5.setText("Ayuda");
-        jMenuBar1.add(jMenu5);
+        jmenu2.setText("Ayuda");
+        jmenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmenu2ActionPerformed(evt);
+            }
+        });
+
+        help.setText("Abrir modelo de datos");
+        help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpActionPerformed(evt);
+            }
+        });
+        jmenu2.add(help);
+
+        jMenuBar1.add(jmenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -1801,6 +1817,18 @@ public class IUBarco extends javax.swing.JFrame {
         valorVacios="";
         valor_contenedor.setText("");
     }//GEN-LAST:event_CleanActionPerformed
+
+    private void jmenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmenu2ActionPerformed
+
+    }//GEN-LAST:event_jmenu2ActionPerformed
+
+    private void helpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpActionPerformed
+        // TODO add your handling code here:
+        try {
+            File path = new File (System.getProperty("user.dir") + "\\Optimizador de rutas.pdf");
+            Desktop.getDesktop().open(path);
+        }catch (IOException ex) {}
+    }//GEN-LAST:event_helpActionPerformed
     
     public String todojunto (Barco barco){
         return barco.getName() + " "+ barco.getP1()+ " " + barco.getP2()+ " " + barco.getP3()+ " " + barco.getP4();
@@ -1899,6 +1927,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JTextField fuel_km;
     private javax.swing.JTextField fuel_puerto;
     private javax.swing.JTextField fuel_puertoEsp;
+    private javax.swing.JMenuItem help;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1927,7 +1956,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
@@ -1960,6 +1988,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenu jmenu2;
     private javax.swing.JButton loadSolution;
     private javax.swing.JTextField noUsar;
     private javax.swing.JTextField perdidas;

@@ -1,5 +1,5 @@
 # Set y parámetros de Puertos 
-set Puertos := Bra Arg Uru EU Can Ang Cam Mar Sen ; 
+set Puertos := Bra Arg Uru EU(E) Can(E) Ang Cam Mar Sen ; 
  
 param:	tasa_contenedor	ratio_contenedor	tiempo	Q		Q_valor:=#Puertos
 Bra	15.07		1920			0.04166	122233		968415.3#Puertos
@@ -31,8 +31,8 @@ param fuel_puerto:	Bra	Arg	Uru	EU(E)	Can(E)	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
 		SE	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84;#PUERTO <--> BARCO
 
 param tasa_fija:	Bra	Arg	Uru	EU(E)	Can(E)	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
-		SA	8500	8500	8500	8500	8500	12000	12000	12000	12000#PUERTO <--> BARCO
-		SB	8670	8670	8670	8670	8670	12240	12240	12240	12240#PUERTO <--> BARCO
+		SA	8500	8500	8500	8500.0	8500.0	12000	12000	12000	12000#PUERTO <--> BARCO
+		SB	8670	8670	8670	8670.0	8670.0	12240	12240	12240	12240#PUERTO <--> BARCO
 		#SC	8843.4	8843.4	8843.4	8843.4	8843.4	12484.8	12484.8	12484.8	12484.8#PUERTO <--> BARCO
 		#SD	9020.26	9020.26	9020.26	9020.26	9020.26	12734.4	12734.4	12734.4	12734.4#PUERTO <--> BARCO
 		SE	9200.67	9200.67	9200.67	9200.67	9200.67	12989.1	12989.1	12989.1	12989.1;#PUERTO <--> BARCO
@@ -67,42 +67,42 @@ param: arcos:		distancia:=#PUERTO <--> PUERTO
 	EU(E) Can(E)		1300.1,	Can(E) EU(E)		1300.1;#PUERTO <--> PUERTO
 
 # parametros de barcos y puertos Españoles#PUERTOESP <--> BARCO
-#param fuel_puertoESP:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
+#param fuel_puertoEsp:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	5393.04	7765.98#PUERTOESP <--> BARCO
 #		SB	8386.09	12075.9#PUERTOESP <--> BARCO
 #		#SC	12639.4	18200.6#PUERTOESP <--> BARCO
 #		#SD	15882.6	22870.9#PUERTOESP <--> BARCO
 #		SE	19510.4	28094.9;#PUERTOESP <--> BARCO
 
-#param T3::=#PUERTOESP <--> BARCO
+#param T3:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	0	0#PUERTOESP <--> BARCO
 #		SB	0	0#PUERTOESP <--> BARCO
 #		#SC	0	0#PUERTOESP <--> BARCO
 #		#SD	0	0#PUERTOESP <--> BARCO
 #		SE	0	0;#PUERTOESP <--> BARCO
 
-#param Bonificaciones::=#PUERTOESP <--> BARCO
+#param Bonificaciones:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	1	1#PUERTOESP <--> BARCO
 #		SB	1	1#PUERTOESP <--> BARCO
 #		#SC	1	1#PUERTOESP <--> BARCO
 #		#SD	1	1#PUERTOESP <--> BARCO
 #		SE	1	1;#PUERTOESP <--> BARCO
 
-#param Practicaje::=#PUERTOESP <--> BARCO
+#param Practicaje:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	8500	8500#PUERTOESP <--> BARCO
 #		SB	8670	8670#PUERTOESP <--> BARCO
 #		#SC	8843.4	8843.4#PUERTOESP <--> BARCO
 #		#SD	9020.26	9020.26#PUERTOESP <--> BARCO
 #		SE	9200.67	9200.67;#PUERTOESP <--> BARCO
 
-#param T1::=#PUERTOESP <--> BARCO
+#param fuel_puertoEsp:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	68.23	68.23#PUERTOESP <--> BARCO
 #		SB	77.62	77.62#PUERTOESP <--> BARCO
 #		#SC	104.05	104.05#PUERTOESP <--> BARCO
 #		#SD	121.59	121.59#PUERTOESP <--> BARCO
 #		SE	117.84	117.84;#PUERTOESP <--> BARCO
 
-#param Remolque::=#PUERTOESP <--> BARCO
+#param Remolque:	EU(E)	Can(E):=#PUERTOESP <--> BARCO
 #		SA	0	0#PUERTOESP <--> BARCO
 #		SB	0	0#PUERTOESP <--> BARCO
 #		#SC	0	0#PUERTOESP <--> BARCO
