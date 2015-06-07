@@ -76,13 +76,13 @@ public class IUBarco extends javax.swing.JFrame {
         Q_valor = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtPuertos = new javax.swing.JTextArea();
-        jPanel6 = new javax.swing.JPanel();
+        updatePuerto = new javax.swing.JButton();
         addButtonPuerto = new javax.swing.JButton();
-        AddButtonDataPuerto = new javax.swing.JTextField();
-        ListaPuertos = new java.awt.List();
-        deleteButtonPuerto = new javax.swing.JButton();
         addButtonPuertoEsp = new javax.swing.JButton();
-        saveButtonPuerto1 = new javax.swing.JButton();
+        AddButtonDataPuerto = new javax.swing.JTextField();
+        deleteButtonPuerto = new javax.swing.JButton();
+        jPanel15 = new javax.swing.JPanel();
+        ListaPuertos = new java.awt.List();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         distancia = new javax.swing.JTextField();
@@ -158,6 +158,7 @@ public class IUBarco extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         OpenMenu = new javax.swing.JMenuItem();
         saveArchive = new javax.swing.JMenuItem();
+        Clean = new javax.swing.JMenuItem();
         ExitMenu = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
@@ -339,7 +340,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(upBarcos)
-                        .addContainerGap(533, Short.MAX_VALUE))
+                        .addContainerGap(737, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -420,13 +421,13 @@ public class IUBarco extends javax.swing.JFrame {
                     .addComponent(Q_valor)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel10)
                             .addComponent(jLabel8)
+                            .addComponent(jLabel5)
                             .addComponent(jLabel6)
                             .addComponent(saveButtonPuerto)
                             .addComponent(jLabel7))
-                        .addGap(0, 477, Short.MAX_VALUE)))
+                        .addGap(0, 668, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -452,7 +453,7 @@ public class IUBarco extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Q_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(saveButtonPuerto)
                 .addGap(23, 23, 23))
         );
@@ -461,7 +462,12 @@ public class IUBarco extends javax.swing.JFrame {
         txtPuertos.setRows(5);
         jScrollPane2.setViewportView(txtPuertos);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de puertos"));
+        updatePuerto.setText("Actualizar");
+        updatePuerto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePuertoActionPerformed(evt);
+            }
+        });
 
         addButtonPuerto.setText("Añadir");
         addButtonPuerto.addActionListener(new java.awt.event.ActionListener() {
@@ -470,11 +476,27 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
+        addButtonPuertoEsp.setText("Español");
+        addButtonPuertoEsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonPuertoEspActionPerformed(evt);
+            }
+        });
+
         AddButtonDataPuerto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonDataPuertoActionPerformed(evt);
             }
         });
+
+        deleteButtonPuerto.setText("Eliminar");
+        deleteButtonPuerto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonPuertoActionPerformed(evt);
+            }
+        });
+
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("Lista de puertos"));
 
         ListaPuertos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -487,96 +509,73 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
-        deleteButtonPuerto.setText("Eliminar");
-        deleteButtonPuerto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonPuertoActionPerformed(evt);
-            }
-        });
-
-        addButtonPuertoEsp.setText("Español");
-        addButtonPuertoEsp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonPuertoEspActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(ListaPuertos, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addButtonPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addButtonPuertoEsp))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AddButtonDataPuerto)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(deleteButtonPuerto)))))
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ListaPuertos, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ListaPuertos, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ListaPuertos, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addButtonPuerto)
-                    .addComponent(AddButtonDataPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteButtonPuerto)
-                    .addComponent(addButtonPuertoEsp))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-
-        saveButtonPuerto1.setText("Actualizar");
-        saveButtonPuerto1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveButtonPuerto1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addButtonPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addButtonPuertoEsp))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(saveButtonPuerto1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AddButtonDataPuerto)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(deleteButtonPuerto)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(updatePuerto)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addButtonPuerto)
+                            .addComponent(AddButtonDataPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteButtonPuerto)
+                            .addComponent(addButtonPuertoEsp)))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 62, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveButtonPuerto1))
+                    .addComponent(updatePuerto))
                 .addGap(32, 32, 32))
         );
 
@@ -925,7 +924,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(439, Short.MAX_VALUE))
+                .addContainerGap(643, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1002,7 +1001,7 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
 
-        jLabel29.setText("T1");
+        jLabel29.setText("T0");
 
         T1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1026,31 +1025,31 @@ public class IUBarco extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(remolque)
-                    .addComponent(T1)
                     .addComponent(practicaje)
                     .addComponent(bonificaciones)
-                    .addComponent(fuel_puertoEsp)
                     .addComponent(T3)
+                    .addComponent(fuel_puertoEsp)
+                    .addComponent(T1)
                     .addGroup(jPanel27Layout.createSequentialGroup()
                         .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel30)
-                            .addComponent(jLabel29)
                             .addComponent(jLabel28)
                             .addComponent(saveButtonPuertoEspBarco)
                             .addComponent(jLabel27)
                             .addComponent(jLabel26)
-                            .addComponent(jLabel25))
-                        .addGap(0, 251, Short.MAX_VALUE)))
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel29))
+                        .addGap(0, 269, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel25)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fuel_puertoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel29)
+                .addGap(4, 4, 4)
+                .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(T3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1062,10 +1061,10 @@ public class IUBarco extends javax.swing.JFrame {
                 .addComponent(jLabel28)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(practicaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel29)
                 .addGap(4, 4, 4)
-                .addComponent(T1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fuel_puertoEsp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1119,7 +1118,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(upPuertoEspBarco)))
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(600, Short.MAX_VALUE))
         );
         jPanel23Layout.setVerticalGroup(
             jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1226,7 +1225,7 @@ public class IUBarco extends javax.swing.JFrame {
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(upOtros)))
-                .addContainerGap(545, Short.MAX_VALUE))
+                .addContainerGap(749, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1266,7 +1265,7 @@ public class IUBarco extends javax.swing.JFrame {
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1063, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1267, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
@@ -1311,6 +1310,14 @@ public class IUBarco extends javax.swing.JFrame {
             }
         });
         jMenu1.add(saveArchive);
+
+        Clean.setText("Limpiar datos");
+        Clean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CleanActionPerformed(evt);
+            }
+        });
+        jMenu1.add(Clean);
 
         ExitMenu.setText("Salir");
         ExitMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -1357,10 +1364,12 @@ public class IUBarco extends javax.swing.JFrame {
             File file = filechooser.getSelectedFile(); 
             try {
                 ArrayList<ArrayList> carga = archiveReader(file);
-                PL = (PuertoLista) carga.get(0);
-                BL = (BarcoLista) carga.get(1);
-                RPL =carga.get(2);
-                PBL = carga.get(3);                
+                PL.addAll((PuertoLista) carga.get(0));
+                PEL.addAll((PuertoEspLista) carga.get(1));
+                BL.addAll((BarcoLista) carga.get(2));
+                RPL.addAll(carga.get(3));
+                PBL.addAll(carga.get(4));  
+                PBEL.addAll(carga.get(5));
             } catch (IOException ex) {
                 Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1427,11 +1436,11 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void saveButtonPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonPuertoActionPerformed
          // TODO add your handling code here:
-        PL.get(ListaPuertos.getSelectedIndex()).setP1(tasa_contenedor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP2(ratio_contenedor.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP3(atraque.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP4(Q.getText());
-        PL.get(ListaPuertos.getSelectedIndex()).setP5(Q_valor.getText());
+            PL.get(ListaPuertos.getSelectedIndex()).setP1(tasa_contenedor.getText());
+            PL.get(ListaPuertos.getSelectedIndex()).setP2(ratio_contenedor.getText());
+            PL.get(ListaPuertos.getSelectedIndex()).setP3(atraque.getText());
+            PL.get(ListaPuertos.getSelectedIndex()).setP4(Q.getText());
+            PL.get(ListaPuertos.getSelectedIndex()).setP5(Q_valor.getText());
     }//GEN-LAST:event_saveButtonPuertoActionPerformed
 
     private void addButtonPuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuertoActionPerformed
@@ -1465,6 +1474,7 @@ public class IUBarco extends javax.swing.JFrame {
         ListaPuertosOrigen.remove(posList);
         ListaPuertosDestino.remove(posList);
         PL.remove(posList);
+        PEL.remove(puerto);
         ArrayList<RelacionPuerto> aux3 = new ArrayList();
         for (RelacionPuerto relacion : RPL){
             aux3.add(relacion);
@@ -1571,11 +1581,11 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void saveButtonPuertoEspBarcosaveButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonPuertoEspBarcosaveButton4ActionPerformed
         // TODO add your handling code here:
-        PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad(fuel_puerto.getText());
+        PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad(T1.getText());
         PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad2(T3.getText());
         PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad3(bonificaciones.getText());
         PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad4(practicaje.getText());
-        PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad5(T1.getText());
+        PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad5(fuel_puertoEsp.getText());
         PBEL.get(ListaRelacionesPBE.getSelectedIndex()).setPropiedad6(remolque.getText());
     }//GEN-LAST:event_saveButtonPuertoEspBarcosaveButton4ActionPerformed
 
@@ -1613,10 +1623,11 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void addButtonPuertoEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonPuertoEspActionPerformed
         // TODO add your handling code here:
-         ListaPuertos.add(AddButtonDataPuerto.getText());
-         ListaPuertosDestino.add(AddButtonDataPuerto.getText());
-         ListaPuertosOrigen.add(AddButtonDataPuerto.getText());
-        Puerto puerto = new Puerto(AddButtonDataPuerto.getText(), "","","","","");
+         ListaPuertos.add(AddButtonDataPuerto.getText() + "(E)");
+         ListaPuertosDestino.add(AddButtonDataPuerto.getText()+ "(E)");
+         ListaPuertosOrigen.add(AddButtonDataPuerto.getText()+ "(E)");
+        Puerto puerto = new Puerto(AddButtonDataPuerto.getText()+ "(E)", "","","","","");
+        PL.add(puerto);
         PEL.add(puerto);
         for(Barco barco : BL){
             RelacionPBE relacion = new RelacionPBE(puerto,barco,"","","","","","");
@@ -1695,20 +1706,20 @@ public class IUBarco extends javax.swing.JFrame {
     }//GEN-LAST:event_ListaRelacionesPuertosActionPerformed
 
     private void ListaRelacionesPBEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaRelacionesPBEActionPerformed
-        // TODO add your handling code here:
-        fuel_puertoEsp.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad());
+
+        fuel_puertoEsp.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad5());
         T3.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad2());
         bonificaciones.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad3());
         practicaje.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad4());
-        T1.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad5());
+        T1.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad());
         remolque.setText(PBEL.get(ListaRelacionesPBE.getSelectedIndex()).getPropiedad6());
     }//GEN-LAST:event_ListaRelacionesPBEActionPerformed
 
-    private void saveButtonPuerto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonPuerto1ActionPerformed
+    private void updatePuertoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePuertoActionPerformed
         // TODO add your handling code here:
         String prueba = todojunto( PL.get(ListaPuertos.getSelectedIndex()));
         txtPuertos.setText(prueba);
-    }//GEN-LAST:event_saveButtonPuerto1ActionPerformed
+    }//GEN-LAST:event_updatePuertoActionPerformed
 
     private void saveButtonBarcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonBarcoActionPerformed
         // TODO add your handling code here:
@@ -1732,7 +1743,6 @@ public class IUBarco extends javax.swing.JFrame {
 
     private void RunSolutionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunSolutionActionPerformed
         try {
-            archiveWriter(System.getProperty("user.dir")+"\\modelo.dat");
             archiveWriterDecision();
         } catch (IOException ex) {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
@@ -1744,6 +1754,53 @@ public class IUBarco extends javax.swing.JFrame {
             Logger.getLogger(IUBarco.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_RunSolutionActionPerformed
+
+    private void CleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CleanActionPerformed
+       // TODO add your handling code here:
+        PL.clear();
+        PEL.clear();
+        ListaPuertos.removeAll();
+        tasa_contenedor.setText("");
+        ratio_contenedor.setText("");
+        atraque.setText("");
+        Q.setText("");
+        Q_valor.setText("");
+        
+        BL.clear();
+        ListaBarcos.removeAll();
+        capacidad.setText("");
+        velocidad.setText("");
+        costo_diario.setText("");
+        fuel_km.setText("");
+        
+        RPL.clear();
+        ListaPuertosOrigen.removeAll();
+        ListaPuertosDestino.removeAll();
+        ListaRelacionesPuertos.removeAll();
+        distancia.setText("");
+        
+        PBL.clear();
+        ListaRelacionesPB.removeAll();
+        fuel_puerto.setText("");
+        tasa_fija.setText("");
+        tasa_variable.setText("");
+        
+        PBEL.clear();
+        ListaRelacionesPBE.removeAll();
+        fuel_puertoEsp.setText("");
+        T3.setText("");
+        bonificaciones.setText("");
+        practicaje.setText("");
+        T1.setText("");
+        remolque.setText("");
+        
+        porcentaje="";
+        perdidas.setText("");
+        rango ="";
+        temporada.setText("");
+        valorVacios="";
+        valor_contenedor.setText("");
+    }//GEN-LAST:event_CleanActionPerformed
     
     public String todojunto (Barco barco){
         return barco.getName() + " "+ barco.getP1()+ " " + barco.getP2()+ " " + barco.getP3()+ " " + barco.getP4();
@@ -1812,6 +1869,7 @@ public class IUBarco extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AddButtonDataBarco;
     private javax.swing.JTextField AddButtonDataPuerto;
+    private javax.swing.JMenuItem Clean;
     private javax.swing.JMenuItem ExitMenu;
     private java.awt.List ListaBarcos;
     private java.awt.List ListaPuertos;
@@ -1878,6 +1936,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
@@ -1890,7 +1949,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -1913,7 +1971,6 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton saveButtonDistancia;
     private javax.swing.JButton saveButtonOtros;
     private javax.swing.JButton saveButtonPuerto;
-    private javax.swing.JButton saveButtonPuerto1;
     private javax.swing.JButton saveButtonPuertoBarco;
     private javax.swing.JButton saveButtonPuertoEspBarco;
     private javax.swing.JTextPane solution;
@@ -1932,6 +1989,7 @@ public class IUBarco extends javax.swing.JFrame {
     private javax.swing.JButton upOtros;
     private javax.swing.JButton upPuertoBarco;
     private javax.swing.JButton upPuertoEspBarco;
+    private javax.swing.JButton updatePuerto;
     private javax.swing.JTextField valor_contenedor;
     private javax.swing.JTextField velocidad;
     // End of variables declaration//GEN-END:variables
@@ -1965,6 +2023,7 @@ public class IUBarco extends javax.swing.JFrame {
         
         //PUERTOS
         PuertoLista PListasa = new PuertoLista();
+        PuertoEspLista PEspListasa = new PuertoEspLista();
         String delims = "#Puertos";
         String delims2 = "\t";
         String[] tokens = everything.split(delims);
@@ -1979,12 +2038,16 @@ public class IUBarco extends javax.swing.JFrame {
                 }
             }
             Puerto puertaso = new Puerto(tokens2[0].trim(),tokens2[1],tokens2[2],tokens2[3],tokens2[4],tokens2[5].replace(";",""));
+            if (puertaso.getName().contains("(E)")){
+                PEspListasa.add(puertaso);
+            }
             PListasa.add(puertaso);
             ListaPuertos.add(puertaso.getName());
             ListaPuertosOrigen.add(puertaso.getName());
             ListaPuertosDestino.add(puertaso.getName());
         }
-        completo.add(PListasa);
+        completo.add(PListasa);//(0)
+        completo.add(PEspListasa);//(1)
         
         //BARCOS
         BarcoLista Blistasa = new BarcoLista();
@@ -2005,7 +2068,7 @@ public class IUBarco extends javax.swing.JFrame {
             Blistasa.add(barcaso);
             ListaBarcos.add(barcaso.getName());
         }
-        completo.add(Blistasa);
+        completo.add(Blistasa);//(2)
 
         //PUERTO <--> PUERTO
         ArrayList<RelacionPuerto> RelacionPuertolistasa =new ArrayList();
@@ -2036,18 +2099,20 @@ public class IUBarco extends javax.swing.JFrame {
             RelacionPuertolistasa.add(relacionasa);
             ListaRelacionesPuertos.add(relacionasa.getId());
         }
-        completo.add(RelacionPuertolistasa);
+        completo.add(RelacionPuertolistasa);//(3)
 
         //PUERTO <--> BARCO
         ArrayList<RelacionPB> PBlistasa =new ArrayList();
         delims = "#PUERTO <--> BARCO";
         delims2 = "\t";
         tokens = everything.split(delims);
+        String[] tokens4=tokens[1].split(delims2);
         int bandera = 1;
+        int l=0;
         for (int i = 2; i < tokens.length-1; i++){
-            if (!tokens[i].contains("param") && tokens[i].length()>3){
+            if (!tokens[i].contains("param")){
                 String[] tokens3 = tokens[i].split(delims2);
-                String[] tokens2 = new String[11];
+                String[] tokens2 = new String[PListasa.size()+2];
                 int k=0;
                 for (int j=0; j <tokens3.length; j++){
                     if(!"".equals(tokens3[j])){
@@ -2057,19 +2122,90 @@ public class IUBarco extends javax.swing.JFrame {
                 }
                 for(int j = 0; j<PListasa.size(); j++){
                     if(bandera==1){
-                    RelacionPB relacionasa = new RelacionPB(PListasa.get(j),Blistasa.get(i-2), tokens2[j+2].replace(";",""),"","");
-                    PBlistasa.add(relacionasa);
-                    ListaRelacionesPB.add(relacionasa.getId());}
+                        if (!tokens4[j+1].contains("(E)")){
+                            RelacionPB relacionasa = new RelacionPB(PListasa.get(j),Blistasa.get(i-2), tokens2[j+2].replace(";",""),"","");
+                            PBlistasa.add(relacionasa);
+                            ListaRelacionesPB.add(relacionasa.getId());
+                        }
+                    }
                     if(bandera==2){
-                    PBlistasa.get((i-(3+Blistasa.size()))*(PListasa.size()) + j).setPropiedad2(tokens2[j+2].replace(";",""));}
+                        if (!tokens4[j+1].contains("(E)")){
+                            PBlistasa.get(l).setPropiedad2(tokens2[j+2].replace(";",""));
+                            l++;
+                            //PBlistasa.get((i-(3+Blistasa.size()))*(PListasa.size()) + j).setPropiedad2(tokens2[j+2].replace(";",""));
+                        }
+                    }
                     if(bandera==3){
-                    PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));}
+                        if (!tokens4[j+1].contains("(E)")){
+                            PBlistasa.get(l).setPropiedad3(tokens2[j+2].replace(";",""));                   
+                            l++;                        
+                            //PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));
+                        }
+                    }
                 }
                 
-            }else{bandera++; }
-        completo.add(PBlistasa);    
+            }else{bandera++;
+            l=0;}    
         }
+        completo.add(PBlistasa);//(4)
+        
+        //PUERTOESP <--> BARCO
+        ArrayList<RelacionPBE> PBElistasa =new ArrayList();
+        delims = "#PUERTOESP <--> BARCO";
+        delims2 = "\t";
+        tokens = everything.split(delims);
+        tokens4=tokens[1].trim().split(delims2);
+        bandera = 1;
+        l=0;
+        for (int i = 2; i < tokens.length-1; i++){
+            if (!tokens[i].contains("param")){
+                String[] tokens3 = tokens[i].split(delims2);
+                String[] tokens2 = new String[PEspListasa.size()+2];
+                int k=0;
+                for (int j=0; j <tokens3.length; j++){
+                    if(!"".equals(tokens3[j])){
+                        tokens2[k]=tokens3[j];
+                        k++;
+                    }
+                }
+                for(int j = 0; j<PEspListasa.size(); j++){
+                    if(bandera==1){                      
+                        RelacionPBE relacionasa = new RelacionPBE(PEspListasa.get(j),Blistasa.get(i-2), tokens2[j+2].replace(";",""),"","","","","");
+                        PBElistasa.add(relacionasa);
+                        ListaRelacionesPBE.add(relacionasa.getId());
 
+                    }
+                    if(bandera==2){
+                        PBElistasa.get(l).setPropiedad2(tokens2[j+2].replace(";",""));
+                        l++;
+                        //PBlistasa.get((i-(3+Blistasa.size()))*(PListasa.size()) + j).setPropiedad2(tokens2[j+2].replace(";",""));
+                    }
+                    if(bandera==3){
+                        PBElistasa.get(l).setPropiedad3(tokens2[j+2].replace(";",""));                   
+                        l++;                        
+                        //PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));
+                    }
+                    if(bandera==4){
+                        PBElistasa.get(l).setPropiedad4(tokens2[j+2].replace(";",""));                   
+                        l++;                        
+                        //PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));
+                    }
+                    if(bandera==5){
+                        PBElistasa.get(l).setPropiedad5(tokens2[j+2].replace(";",""));                   
+                        l++;                        
+                        //PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));
+                    }
+                    if(bandera==6){
+                        PBElistasa.get(l).setPropiedad6(tokens2[j+2].replace(";",""));                   
+                        l++;                        
+                        //PBlistasa.get((i-(4+2*Blistasa.size()))*(PListasa.size()) + j).setPropiedad3(tokens2[j+2].replace(";",""));
+                    }
+                }               
+            }else{bandera++;
+            l=0;}    
+        }
+        completo.add(PBElistasa);//(5)
+        
         //perdidas
         delims = "#perdidas";
         delims2 = " ";
@@ -2146,13 +2282,21 @@ public class IUBarco extends javax.swing.JFrame {
             for(int i = 0;i<PL.size();i++){
                 bw.write("\t" + PL.get(i).getName());
             }
+            int k =0;
+            int l=0;
             bw.write(":=#PUERTO <--> BARCO\n");
-            for (int i =0; i<(PBL.size()/PL.size()); i++){
-                for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
                     if(j==0){
                         bw.write("\t\t"+ BL.get(i).getName().trim());
                     }else{
-                        bw.write("\t" + PBL.get(10*i+ j-(i+1)).getPropiedad());
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad());
+                            l++;
+                        }else{
+                            bw.write("\t" + PBEL.get(k).getPropiedad5());
+                            k++;
+                        }
                     }
                 }
                 if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
@@ -2164,13 +2308,23 @@ public class IUBarco extends javax.swing.JFrame {
             for(int i = 0;i<PL.size();i++){
                 bw.write("\t" + PL.get(i).getName());
             }
-             bw.write(":=#PUERTO <--> BARCO\n");
-            for (int i =0; i<(PBL.size()/PL.size()); i++){
-                for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
+            k=0;
+            l=0;
+            bw.write(":=#PUERTO <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
                     if(j==0){
                         bw.write("\t\t"+ BL.get(i).getName().trim());
                     }else{
-                        bw.write("\t" + PBL.get(10*i+ j-(i+1)).getPropiedad2());
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad2());
+                            l++;
+                        }else{
+                            double total;
+                            total = Double.parseDouble(PBEL.get(k).getPropiedad4())+ Double.parseDouble(PBEL.get(k).getPropiedad6());
+                            bw.write("\t" + total);
+                            k++;
+                        }
                     }
                 }
                 if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
@@ -2183,12 +2337,22 @@ public class IUBarco extends javax.swing.JFrame {
                 bw.write("\t" + PL.get(i).getName());
             }
              bw.write(":=#PUERTO <--> BARCO\n");
-            for (int i =0; i<(PBL.size()/PL.size()); i++){
-                for (int j = 0; j<(PBL.size()/BL.size())+1;j++){
+             k=0;
+             l=0;
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
                     if(j==0){
                         bw.write("\t\t"+ BL.get(i).getName().trim());
                     }else{
-                        bw.write("\t" + PBL.get(10*i+ j-(i+1)).getPropiedad3());
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad3());
+                            l++;
+                        }else{
+                            double total;
+                            total = Double.parseDouble(PBEL.get(k).getPropiedad())+ Double.parseDouble(PBEL.get(k).getPropiedad2());
+                            bw.write("\t" + total);
+                            k++;
+                        }
                     }
                 }
                 if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
@@ -2216,6 +2380,115 @@ public class IUBarco extends javax.swing.JFrame {
                 }
             }
             
+            //barcos y puertos Españoles
+            bw.write("\n# parametros de barcos y puertos Españoles#PUERTOESP <--> BARCO");
+            //T1
+            bw.write("\n#param fuel_puertoEsp:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
+
+            //T3
+            bw.write("\n#param T3:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad2());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
+            
+            //Bonificaciones
+            bw.write("\n#param Bonificaciones:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad3());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
+            
+            //Practicaje
+            bw.write("\n#param Practicaje:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad4());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
+            
+            //fuel_puertoESP
+            bw.write("\n#param fuel_puertoEsp:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad5());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
+            
+            //Remolque
+            bw.write("\n#param Remolque:");
+            for(int i = 0;i<PEL.size();i++){
+                bw.write("\t" + PEL.get(i).getName());
+            }
+            bw.write(":=#PUERTOESP <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PEL.size())+1;j++){
+                    if(j==0){
+                        bw.write("#\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        bw.write("\t" + PBEL.get((PEL.size()+1)*i+ j-(i+1)).getPropiedad6());
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTOESP <--> BARCO\n");
+                }else{bw.write("#PUERTOESP <--> BARCO\n");}
+            }
             bw.close();
 	} finally {
     }
@@ -2225,23 +2498,163 @@ public class IUBarco extends javax.swing.JFrame {
         
         try {
 	// if file doesnt exists, then create it
-            FileWriter fw = new FileWriter(System.getProperty("user.dir")+"\\modelo.dat",true);
+            FileWriter fw = new FileWriter(System.getProperty("user.dir")+"\\modelo.dat",false);
             BufferedWriter bw = new BufferedWriter(fw);
+            
+            //Puertos
+            bw.write("# Set y parámetros de Puertos \n");
+            bw.write("set Puertos := ");
+            for (int i =0; i<PL.size(); i++){
+               bw.write(PL.get(i).getName().trim().replace("(E)", "") + " "); 
+            }
+            bw.write("; \n \n");
+            bw.write("param:\ttasa_contenedor\tratio_contenedor\ttiempo\tQ\t\tQ_valor:=#Puertos\n");
+            for (int i =0; i<PL.size(); i++){
+                if (i == PL.size()-1){bw.write(PL.get(i).getName().trim().replace("(E)", "") + "\t"+ PL.get(i).getP1() + "\t"+ "\t" + PL.get(i).getP2()
+                       + "\t"+ "\t"+ "\t"+PL.get(i).getP3()+ "\t"+PL.get(i).getP4()
+                       + "\t"+ "\t" + PL.get(i).getP5() + ";#Puertos\n");
+                }else{bw.write(PL.get(i).getName().trim().replace("(E)", "") + "\t"+ PL.get(i).getP1() + "\t"+ "\t" + PL.get(i).getP2()
+                       + "\t"+ "\t"+ "\t"+PL.get(i).getP3()+ "\t"+PL.get(i).getP4()
+                       + "\t"+ "\t" + PL.get(i).getP5() + "#Puertos\n");} 
+            }     
+            
+           //Barcos
+            bw.write("\n# Set y parámetros de Barcos \n");
+            bw.write("set Barcos := ");
+            for (int i =0; i<BL.size(); i++){
+                if(!BL.get(i).getName().contains("#")){
+                    bw.write(BL.get(i).getName().trim() + " ");} 
+            }
+            bw.write(";\n\t\t\t\t\t\t\t\t#Barcos\n");
+            bw.write("param:\tcapacidad\tvelocidad\tcosto_diario\tfuel_km:=#Barcos\n");
+            for (int i =0; i<BL.size(); i++){
+               if (i == BL.size()-1){
+                   bw.write(BL.get(i).getName().trim() + "\t"+ BL.get(i).getP1() + "\t"+ "\t" + BL.get(i).getP2()
+                       + "\t" +"\t"+BL.get(i).getP3()+ "\t"+ "\t"+BL.get(i).getP4()+ ";#Barcos\n");}
+               else{bw.write(BL.get(i).getName().trim() + "\t"+ BL.get(i).getP1() + "\t"+ "\t" + BL.get(i).getP2()
+                       + "\t" +"\t"+BL.get(i).getP3()+ "\t"+ "\t"+BL.get(i).getP4()+ "#Barcos\n");} 
+            }
+            
+            //barcos y puertos
+            bw.write("\n# parametros de barcos y puertos#PUERTO <--> BARCO");
+            //fuel puerto
+            bw.write("\nparam fuel_puerto:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName().replace("(E)", ""));
+            }
+            int k =0;
+            int l=0;
+            bw.write(":=#PUERTO <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
+                    if(j==0){
+                        bw.write("\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad());
+                            l++;
+                        }else{
+                            bw.write("\t" + PBEL.get(k).getPropiedad5());
+                            k++;
+                        }
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
+                }else{bw.write("#PUERTO <--> BARCO\n");}
+            }
+            
+            //tasa fija
+             bw.write("\nparam tasa_fija:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName().replace("(E)", ""));
+            }
+            k=0;
+            l=0;
+            bw.write(":=#PUERTO <--> BARCO\n");
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
+                    if(j==0){
+                        bw.write("\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad2());
+                            l++;
+                        }else{
+                            double total;
+                            total = Double.parseDouble(PBEL.get(k).getPropiedad4())+ Double.parseDouble(PBEL.get(k).getPropiedad6());
+                            bw.write("\t" + total);
+                            k++;
+                        }
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
+                }else{bw.write("#PUERTO <--> BARCO\n");}
+            }
+            
+            //tasa variable
+             bw.write("\nparam tasa_variable:");
+            for(int i = 0;i<PL.size();i++){
+                bw.write("\t" + PL.get(i).getName().replace("(E)", ""));
+            }
+             bw.write(":=#PUERTO <--> BARCO\n");
+             k=0;
+             l=0;
+            for (int i =0; i<(BL.size()); i++){
+                for (int j = 0; j<(PL.size())+1;j++){
+                    if(j==0){
+                        bw.write("\t\t"+ BL.get(i).getName().trim());
+                    }else{
+                        if (!PL.get(j-1).getName().contains("(E)")){
+                            bw.write("\t" + PBL.get(l).getPropiedad3());
+                            l++;
+                        }else{
+                            double total;
+                            total = Double.parseDouble(PBEL.get(k).getPropiedad())+ Double.parseDouble(PBEL.get(k).getPropiedad2());
+                            bw.write("\t" + total);
+                            k++;
+                        }
+                    }
+                }
+                if(i==BL.size()-1){bw.write(";#PUERTO <--> BARCO\n");
+                }else{bw.write("#PUERTO <--> BARCO\n");}
+            }
+            
+            //Otros
+            bw.write("\n# otros parametros \n#perdidas\n");
+            bw.write("param perdidas:= " +porcentaje+";#perdidas #temporada"
+            + "\nparam temporada:= "+rango+";#temporada #valorContenedor"
+            + "\nparam valor_contenedor:= "+valorVacios+"; #valorContenedor");
+            
+            //distancias
+            bw.write("\n#PUERTO <--> PUERTO\n");
+            bw.write("param: arcos:\t\tdistancia:=#PUERTO <--> PUERTO\n");
+            for(int i=0;i<RPL.size();i++){
+                bw.write("\t" + RPL.get(i).getPuerto().getName().replace("(E)", "") + " "+ RPL.get(i).getPuerto2().getName().replace("(E)", "")+
+                        "\t\t" + RPL.get(i).getDistancia());
+                if(i==RPL.size()-1){bw.write(";#PUERTO <--> PUERTO\n");
+                }else{if(i % 2 == 0) {
+                        bw.write(",");
+                    } else {
+                        bw.write("#PUERTO <--> PUERTO\n");
+                    }
+                }
+            }
+            
             String noUsado=noUsar.getText();
             if ("".equals(noUsado)){noUsado="NingunPuerto";}
             //desision
             bw.write("\nparam decision:=\n");
             for (int i =0; i<PL.size(); i++){
-                bw.write("\t["+PL.get(i).getName()+ ",*,*]:");
+                bw.write("\t["+PL.get(i).getName().replace("(E)", "")+ ",*,*]:");
                 for (int j=0; j<BL.size();j++){
                     if(!BL.get(j).getName().contains("#")){
                     bw.write("\t" + BL.get(j).getName());
                     }
                 }
                 bw.write("\t:=");
-                for(int k=0; k <RPL.size();k++){
+                for(k=0; k <RPL.size();k++){
                     if (RPL.get(k).getPuerto().getName().contains(PL.get(i).getName())){
-                        bw.write("\n\t\t" + RPL.get(k).getPuerto2().getName());
+                        bw.write("\n\t\t" + RPL.get(k).getPuerto2().getName().replace("(E)", ""));
                         for (int j=0; j<BL.size();j++){
                             if(!BL.get(j).getName().contains("#")){
                                 if (RPL.get(k).getPuerto2().getName().contains(noUsado) ||

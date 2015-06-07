@@ -1,71 +1,122 @@
-# Set y parÃ¡metros de Puertos 
-set Puertos := Bra Arg Uru EU Can Ang Cam Mar Sen ; 
- 
-param:	tasa_contenedor	ratio_contenedor	tiempo	Q		Q_valor:=#Puertos
-Bra	15.07		1920			0.04166	122233		968415.3#Puertos
-Arg	15.07		1920			0.04166	76930		509767.17#Puertos
-Uru	15.07		1920			0.04166	4726		36710.95#Puertos
-EU	7.75		1920			0.04166	0		0#Puertos
-Can	10.075		2496			0.04166	0		0#Puertos
-Ang	30		1920			0.04166	-25338		-409399.43#Puertos
-Cam	30		1920			0.04166	-6563		-47824.85#Puertos
-Mar	30		1920			0.04166	-150177		-876240.07#Puertos
-Sen	30		1920			0.04166	-21811		-181429.07;#Puertos
+cost = 1890450000
 
-# Set y parÃ¡metros de Barcos 
-set Barcos := SA SB SE ;
-								#Barcos
-param:	capacidad	velocidad	costo_diario	fuel_km:=#Barcos
-SA	1164		722.273		21289		21.967#Barcos
-SB	1810		811.109		21940		24.96#Barcos
-#SC	2728		791.797		22865		33.49#Barcos
-#SD	3428		799.522		23571		39.138#Barcos
-SE	4211		965.606		24360		37.931#Barcos
-#SF	5652		965.606		25813		48.102;#Barcos
+X :=
+Arg Bra SA    76930
+Bra EU  SA   203889
+Can Ang SE        4.9e-11
+EU  Ang SA    25338
+EU  Cam SA     6563
+EU  Mar SA   150177
+EU  Sen SA    21811
+Uru Bra SA     4726
+;
 
-# parametros de barcos y puertos#PUERTO <--> BARCO
-param fuel_puerto:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
-		SA	68.23	68.23	68.23	68.23	68.23	68.23	68.23	68.23	68.23#PUERTO <--> BARCO
-		SB	77.62	77.62	77.62	77.62	77.62	77.62	77.62	77.62	77.62#PUERTO <--> BARCO
-		#SC	104.05	104.05	104.05	104.05	104.05	104.05	104.05	104.05	104.05#PUERTO <--> BARCO
-		#SD	121.59	121.59	121.59	121.59	121.59	121.59	121.59	121.59	121.59#PUERTO <--> BARCO
-		SE	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84	117.84#PUERTO <--> BARCO
-		#SF	149.44	149.44	149.44	149.44	149.44	149.44	149.44	149.44	149.44;#PUERTO <--> BARCO
+Y :=
+Ang Can SE        4.9e-11
+Ang EU  SA    25338
+Bra Arg SA    76930
+Bra Uru SA     4726
+Cam EU  SA     6563
+EU  Bra SA   203889
+Mar EU  SA   150177
+Sen EU  SA    21811
+;
 
-param tasa_fija:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
-		SA	8500	8500	8500	8500	8500	12000	12000	12000	12000#PUERTO <--> BARCO
-		SB	8670	8670	8670	8670	8670	12240	12240	12240	12240#PUERTO <--> BARCO
-		#SC	8843.4	8843.4	8843.4	8843.4	8843.4	12484.8	12484.8	12484.8	12484.8#PUERTO <--> BARCO
-		#SD	9020.26	9020.26	9020.26	9020.26	9020.26	12734.4	12734.4	12734.4	12734.4#PUERTO <--> BARCO
-		SE	9200.67	9200.67	9200.67	9200.67	9200.67	12989.1	12989.1	12989.1	12989.1#PUERTO <--> BARCO
-		#SF	9384.69	9384.69	9384.69	9384.69	9384.69	13248.9	13248.9	13248.9	13248.9;#PUERTO <--> BARCO
+XV :=
+Arg Bra SA    509767
+Bra EU  SA   1514890
+EU  Ang SA    409399
+EU  Cam SA     47824.8
+EU  Mar SA    876240
+EU  Sen SA    181429
+Uru Bra SA     36710.9
+;
 
-param tasa_variable:	Arg	Uru	Bra	EU	Can	Ang	Cam	Mar	Sen:=#PUERTO <--> BARCO
-		SA	1611.44	1611.44	1611.44	5393.04	7765.98	8000	8000	8000	8000#PUERTO <--> BARCO
-		SB	2428.76	2428.76	2428.76	8386.09	12075.9	11200	11200	11200	11200#PUERTO <--> BARCO
-		#SC	3590.21	3590.21	3590.21	12639.4	18200.6	15680	15680	15680	15680#PUERTO <--> BARCO
-		#SD	4475.85	4475.85	4475.85	15882.6	22870.9	21952	21952	21952	21952#PUERTO <--> BARCO
-		SE	5466.5	5466.5	5466.5	19510.4	28094.9	30732.8	30732.8	30732.8	30732.8#PUERTO <--> BARCO
-		#SF	7289.6	7289.6	7289.6	26186.8	37709.1	43025.9	43025.9	43025.9	43025.9;#PUERTO <--> BARCO
+La frecuencia de las rutas de contenedores llenos es: 
+X[i,j,t]/capacidad[t] :=
+Arg Bra SA    66.0911
+Bra EU  SA   175.162
+Can Ang SE     1.16362e-14
+EU  Ang SA    21.768
+EU  Cam SA     5.63832
+EU  Mar SA   129.018
+EU  Sen SA    18.738
+Uru Bra SA     4.06014
+;
 
-# otros parametros 
-#perdidas
-param perdidas:= 0.15;#perdidas #temporada 
-param temporada:= 365;#temporada #valorContenedor
-param valor_contenedor:= 1500; #valorContenedor
-#PUERTO <--> PUERTO
-param: arcos:		distancia:=#PUERTO <--> PUERTO
-	Arg Bra		1900,	Bra Arg		1858#PUERTO <--> PUERTO
-	Uru Bra		1648.5,	Bra Uru		2200#PUERTO <--> PUERTO
-	Arg Uru		210.91,	Uru Arg		210.91#PUERTO <--> PUERTO
-	Bra EU		6827.4,	EU Bra		6827.4#PUERTO <--> PUERTO
-	Bra Can		5571.2,	Can Bra		5571.2#PUERTO <--> PUERTO
-	EU Ang		6822.4,	Ang EU		6822.4#PUERTO <--> PUERTO
-	EU Cam		6250.2,	Cam EU		6250.2#PUERTO <--> PUERTO
-	EU Mar		44.677,	Mar EU		44.677#PUERTO <--> PUERTO
-	EU Sen		2481.5,	Sen EU		2481.5#PUERTO <--> PUERTO
-	Can Ang		4468,	Ang Can		4468#PUERTO <--> PUERTO
-	Can Cam		4755.1,	Cam Can		4755.1#PUERTO <--> PUERTO
-	Can Mar		1080.1,	Mar Can		1080.1#PUERTO <--> PUERTO
-	Can Sen		1329.4,	Sen Can		1329.4#PUERTO <--> PUERTO
-	EU Can		1300.1,	Can EU		1300.1;#PUERTO <--> PUERTO
+La frecuencia de las rutas de contenedores vacíos es:
+Y[i,j,t]/capacidad[t] :=
+Ang Can SE     1.16362e-14
+Ang EU  SA    21.768
+Bra Arg SA    66.0911
+Bra Uru SA     4.06014
+Cam EU  SA     5.63832
+EU  Bra SA   175.162
+Mar EU  SA   129.018
+Sen EU  SA    18.738
+;
+
+El costo de navegación para cada ruta es: 
+ if sum{t in Barcos} (X[i,j,t] + Y[i,j,t]) == 0 then 0 else (sum{t in 
+  Barcos} X[i,j,t]/capacidad[t]*(tasa_fija[t,i] + costo_diario[t]*tiempo[i] + 
+  fuel_puerto[t,i] + distancia[i,j]*(costo_diario[t]/velocidad[t] + 
+  fuel_km[t])) + sum{t in Barcos} Y[i,j,t]/capacidad[t]*(tasa_fija[t,i] + 
+  costo_diario[t]*tiempo[i] + fuel_puerto[t,i] + distancia[i,j]*(
+  costo_diario[t]/velocidad[t] + fuel_km[t])) + sum{t in Barcos} (
+  tasa_contenedor[i] + tasa_contenedor[j] + tasa_variable[t,i]/
+  ratio_contenedor[i] + tasa_variable[t,j]/ratio_contenedor[j] + 
+  costo_diario[t]/ratio_contenedor[i] + costo_diario[t]/ratio_contenedor[j])*
+  X[i,j,t] + sum{t in Barcos} (tasa_contenedor[i] + tasa_contenedor[j] + 
+  tasa_variable[t,i]/ratio_contenedor[i] + tasa_variable[t,j]/
+  ratio_contenedor[j] + costo_diario[t]/ratio_contenedor[i] + costo_diario[t]/
+  ratio_contenedor[j])*Y[i,j,t])/(sum{t in Barcos} (X[i,j,t] + Y[i,j,t])) :=
+Ang Can   160.152
+Ang EU    379.542
+Arg Bra   146.086
+Bra Arg   144.23
+Bra EU    358.498
+Bra Uru   159.345
+Cam EU    354.254
+Can Ang   159.252
+EU  Ang   376.535
+EU  Bra   358.498
+EU  Cam   351.247
+EU  Mar    76.999
+EU  Sen   184.692
+Mar EU     80.0059
+Sen EU    187.699
+Uru Bra   134.972
+;
+
+El costo de Inventario para cada ruta es: 
+ if sum{t in Barcos} (X[i,j,t] + Y[i,j,t]) == 0 then 0 else (temporada*
+  perdidas/2*(sum{t in Barcos} ( if X[i,j,t] == 0 then 0 else 1/(X[i,j,t]/
+  capacidad[t])*XV[i,j,t])) + temporada*perdidas/2*(sum{t in Barcos} ( if Y[i,
+  j,t] == 0 then 0 else 1/(Y[i,j,t]/capacidad[t])*valor_contenedor*Y[i,j,t]))
+   + perdidas*(sum{t in Barcos} (XV[i,j,t] + valor_contenedor*X[i,j,t])*(
+  tiempo[i] + tiempo[j] + distancia[i,j]/velocidad[t])) + perdidas*(sum
+  {t in Barcos} valor_contenedor*Y[i,j,t]*(tiempo[i] + tiempo[j] + 
+  distancia[i,j]/velocidad[t])) + perdidas*(sum{t in Barcos} ( if X[i,j,t]
+   == 0 then 0 else 1/X[i,j,t]/capacidad[t]*(XV[i,j,t] + valor_contenedor*X[i,
+  j,t])*(X[i,j,t]/ratio_contenedor[i] + X[i,j,t]/ratio_contenedor[j]))) + 
+  perdidas*(sum{t in Barcos} ( if Y[i,j,t] == 0 then 0 else 1/Y[i,j,t]/
+  capacidad[t]*(valor_contenedor*Y[i,j,t])*(Y[i,j,t]/ratio_contenedor[i] + Y[i
+  ,j,t]/ratio_contenedor[j]))))/(sum{t in Barcos} (X[i,j,t] + Y[i,j,t])) :=
+Ang Can       3.52886e+18
+Ang EU     4030.4
+Arg Bra     616.071
+Bra Arg    1218.85
+Bra EU     2157.38
+Bra Uru   10817.7
+Cam EU     9248.55
+Can Ang    1059.85
+EU  Ang    2187.45
+EU  Bra    2380.02
+EU  Cam    2010.72
+EU  Mar      34.0299
+EU  Sen     808.319
+Mar EU      350.934
+Sen EU     2983.18
+Uru Bra     587.413
+;
+
